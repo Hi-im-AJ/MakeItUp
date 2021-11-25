@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "start": "next",
     "build": "next build",
-    "start": "next start"
+    "production": "next start",
+    "test": "jest --watchAll",
+    "dev": "concurrently \"npm run test\" \"npm start\""
   },
   "keywords": [],
   "author": "",
@@ -16,5 +18,9 @@
     "next": "^12.0.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^6.4.0",
+    "jest": "^27.3.1"
   }
 }
