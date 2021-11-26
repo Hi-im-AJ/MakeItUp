@@ -3,7 +3,7 @@ import React from "react";
 import ProductList from "../components/ProductList";
 import CategoryList from "../components/CategoryList";
 import Link from "next/link";
-
+import Search from "../components/Search";
 
 export async function getServerSideProps() {
     const merchant = await commerce.merchants.about();
@@ -22,7 +22,7 @@ export default function IndexPage({ merchant, categories, products }) {
     return (
         <React.Fragment>
             <h1>{merchant.data[0].name}</h1>
-
+            <Search/>
             <h3>
                 <Link href="/categories">
                     <a>Categories</a>
