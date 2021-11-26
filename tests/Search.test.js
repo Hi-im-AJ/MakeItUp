@@ -8,22 +8,23 @@ describe("Search", () => {
     render(<Search />);
     const submitButton = screen.getByRole("button");
     expect(submitButton).toBeInTheDocument();
-    expect(searchInput).toHaveAttribute("id", "submitButton");
+    expect(submitButton).toHaveTextContent("Search");
+    expect(submitButton).toHaveAttribute("id", "submitButton");
   });
   it("Should have an input field", () => {
     render(<Search />);
-    const searchInput = screen.getByRole("input");
+    const searchInput = screen.getByRole("textbox");
     expect(searchInput).toBeInTheDocument();
     expect(searchInput).toHaveAttribute("id", "searchInput");
     expect(searchInput).toHaveAttribute("name", "searchInput");
   });
   it("Should return a handbag on search", () => {
-    const search = jest.fn();
-    render(<Search search={search} />);
-    const searchInput = screen.getByRole("input");
+    render(<Search />);
+    const searchInput = screen.getByRole("textbox");
     const submitButton = screen.getByRole("button");
     userEvent.type(searchInput, "Handbag Holiday Cutile Oil");
     userEvent.click(submitButton);
-    expect(search).toHaveBeenCalledWith("Handbag Holiday Cutile Oil");
+    const product = screen.queryAllByRole("div").filter((e) => e.key === "j7FV4w");
+    expect(product).toBeInTheDocument();
   });
 });
