@@ -24,7 +24,7 @@ describe("Search", () => {
     const submitButton = screen.getByRole("button");
     userEvent.type(searchInput, "Handbag Holiday Cutile Oil");
     userEvent.click(submitButton);
-    const product = screen.queryAllByRole("div").filter((e) => e.key === "j7FV4w");
+    const product = screen.getAllByRole("div").filter((e) => e.key === "j7FV4w");
     expect(product).toBeInTheDocument();
   });
 });
