@@ -25,9 +25,10 @@ const ProductList = () => {
     <ul>
       <button onClick={() => setSearchInput("hello")}>qwe</button>
       <h1>{search_input}</h1>
-      {products.map((e) => {
-        return <li key={e.id}>{e.name}</li>;
-      })}
+      {products &&
+        products.map((e) => {
+          return <li key={e.id}>{e.name}</li>;
+        })}
     </ul>
   );
 };

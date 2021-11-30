@@ -1,48 +1,33 @@
 {
-  "name": "make_it_up_react",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@chec/commerce.js": "^2.8.0",
-    "@testing-library/jest-dom": "^5.15.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.6",
-    "react-router-dom": "^6.0.2",
-    "react-scripts": "4.0.3",
-    "redux": "^4.1.2",
-    "web-vitals": "^1.1.2"
-  },
+  "name": "make_it_up",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "sass": "sass --watch src/styles/main.scss:src/styles/main.css",
-    "dev": "concurrently \"npm run test\" \"npm run start\" \"npm run sass\""
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ngrok": "ngrok http 5000",
+    "start": "nodemon index.js",
+    "dev": "concurrently \"cd client && npm run test\" \"cd client && npm run start\" \"cd client && npm run sass\" \"npm run start\" \"npm run ngrok\""
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hi-im-AJ/MakeItUp.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hi-im-AJ/MakeItUp/issues"
+  },
+  "homepage": "https://github.com/Hi-im-AJ/MakeItUp#readme",
+  "dependencies": {
+    "algoliasearch": "^4.11.0",
+    "dotenv": "^10.0.0"
   },
   "devDependencies": {
     "concurrently": "^6.4.0",
-    "sass": "^1.44.0"
+    "express": "^4.17.1",
+    "ngrok": "^4.2.2",
+    "nodemon": "^2.0.15"
   }
 }
