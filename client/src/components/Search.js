@@ -6,7 +6,7 @@ const Search = () => {
   const { setSearchInput } = productContext;
 
   const onChange = (e) => setSearchInput(e.target.value);
-
+  console.log("qwe");
   return (
     <div>
       <input onChange={(e) => onChange(e)} id="searchInput" name="searchInput" type="text" placeholder="Search..." />
