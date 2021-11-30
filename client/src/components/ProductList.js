@@ -4,7 +4,7 @@ import ProductContext from "../context/product/ProductContext";
 
 const ProductList = () => {
   const productContext = useContext(ProductContext);
-  const { search_input, setSearchInput } = productContext;
+  const { search_input } = productContext;
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -23,8 +23,6 @@ const ProductList = () => {
 
   return (
     <ul>
-      <button onClick={() => setSearchInput("hello")}>qwe</button>
-      <h1>{search_input}</h1>
       {products &&
         products.map((e) => {
           return <li key={e.id}>{e.name}</li>;
