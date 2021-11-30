@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll",
     "eject": "react-scripts eject",
     "sass": "sass --watch src/styles/main.scss:src/styles/main.css",
     "dev": "concurrently \"npm run test\" \"npm run start\" \"npm run sass\""
@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "concurrently": "^6.4.0",
     "sass": "^1.44.0"
   }
 }
