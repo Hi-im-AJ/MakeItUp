@@ -1,10 +1,7 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import commerce from "../lib/commerce";
-import ProductContext from "../context/product/ProductContext";
 
 const ProductList = () => {
-  const productContext = useContext(ProductContext);
-  const { search_input } = productContext;
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
