@@ -1,8 +1,10 @@
 const express = require("express");
-const dotenv = require("dotenv");
 const algoliasearch = require("algoliasearch");
 
-dotenv.config({ path: "./config/config.env" });
+if (process.env.NODE_ENV === "production") {
+  const dotenv = require("dotenv");
+  dotenv.config({ path: "./config/config.env" });
+}
 
 const app = express();
 
