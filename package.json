@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "cd client && react-scripts build",
+    "build": "cd client && npm run build",
     "ngrok": "ngrok http 5000",
     "start": "nodemon index.js",
     "dev": "concurrently \"cd client && npm run test\" \"cd client && npm run start\" \"cd client && npm run sass\" \"npm run start\" \"npm run ngrok\"",
