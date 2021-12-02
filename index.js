@@ -7,7 +7,7 @@ dotenv.config({ path: "./config/config.env" });
 const app = express();
 
 app.use(express.json());
-/*
+
 const algolia = algoliasearch(process.env.ALGOLIA_APP_ID, process.env.ALGOLIA_ADMIN_API_KEY);
 
 app.post("/api/algolia", async (req, res) => {
@@ -44,7 +44,6 @@ app.post("/api/algolia", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
-*/
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

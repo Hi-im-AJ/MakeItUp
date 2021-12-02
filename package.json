@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm i && cd client && npm i && npm run build",
+    "build": "npm i && cd client && npm i && npm run build && cd ..",
     "ngrok": "ngrok http 5000",
     "server": "nodemon index.js",
     "start": "node index.js",
