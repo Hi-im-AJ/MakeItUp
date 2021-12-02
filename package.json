@@ -6,7 +6,8 @@
   "scripts": {
     "build": "cd client && npm run build",
     "ngrok": "ngrok http 5000",
-    "start": "nodemon index.js",
+    "server": "nodemon index.js",
+    "start": "node index.js",
     "dev": "concurrently \"cd client && npm run test\" \"cd client && npm run start\" \"cd client && npm run sass\" \"npm run start\" \"npm run ngrok\"",
     "app": "concurrently \"cd client && npm run start\" \"cd client && npm run sass\" \"npm run start\" \"npm run ngrok\"",
     "test": "cd client && npm run test"
