@@ -1,15 +1,17 @@
 $link-font-size: 20px;
 
 nav {
-  margin: 20px $frame-width;
+  margin: 1rem $frame-width;
   display: inline-flex;
   & #logo {
-    height: 35px;
-    margin: 15px;
+    height: 65px;
+    padding: 15px;
+    cursor: pointer;
   }
   & #linksContainer {
+    margin: 1rem 0;
     & a {
-      padding: 5px;
+      padding: 0.25rem;
       text-decoration: none;
       color: $secondary-color;
       font-size: $link-font-size;

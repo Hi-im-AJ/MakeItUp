@@ -1,9 +1,10 @@
 import { InstantSearch, SearchBox, Hits, HitsPerPage, Pagination, RefinementList } from "react-instantsearch-dom";
 import searchClient from "../lib/algolia";
+import Hit from "./Hit";
 
 const Search = () => (
   <InstantSearch searchClient={searchClient} indexName="products">
-    <RefinementList attribute="firstname" operator="and" searchable={true} />
+    {/* <RefinementList attribute="firstname" operator="and" searchable={true} /> */}
     <SearchBox
       translations={{
         submitTitle: "Submit your search query.",
@@ -19,15 +20,8 @@ const Search = () => (
         { value: 5, label: "Show 5 hits" },
       ]}
     />
-    <Pagination />
+    {/* <Pagination /> */}
   </InstantSearch>
 );
-const Hit = ({ hit }) => {
-  return (
-    <article>
-      <p>{hit.firstname}</p>
-    </article>
-  );
-};
 
 export default Search;
