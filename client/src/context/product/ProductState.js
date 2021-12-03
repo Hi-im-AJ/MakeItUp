@@ -5,8 +5,7 @@ import { SET_SEARCH_INPUT } from "../types";
 
 const ProductState = (props) => {
   const initialState = {
-    search_input: "This is search input",
-    text: "",
+    search_input: "",
   };
   const [state, dispatch] = useReducer(ProductReducer, initialState);
 

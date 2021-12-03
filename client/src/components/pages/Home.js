@@ -1,12 +1,12 @@
 import React from "react";
-import Search from "../Search";
+import ProductList from "../ProductList";
 import SideMenu from "../SideMenu";
 
 const Home = () => {
   return (
     <div className="frame">
       <SideMenu />
-      <Search />
+      <ProductList />
     </div>
   );
 };
