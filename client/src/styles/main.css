@@ -1,8 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Raleway:wght@400;700&display=swap");
-body * {
+* {
   padding: 0;
   margin: 0;
   font-family: "Raleway", "Lora", sans-serif;
+}
+
+nav {
+  margin: 20px 100px;
+  display: inline-flex;
+}
+nav #logo {
+  height: 35px;
+  margin: 15px;
+}
+nav #linksContainer a {
+  padding: 5px;
+  text-decoration: none;
+  color: #adadad;
+  font-size: 20px;
+}
+nav #linksContainer a:hover {
+  color: #8f675e;
+}
+nav #linksContainer a:last-child {
+  color: #8f675e;
+  font-weight: 700;
+}
+nav #linksContainer a:last-child:hover {
+  color: #a78179;
 }
 
 /*# sourceMappingURL=main.css.map */

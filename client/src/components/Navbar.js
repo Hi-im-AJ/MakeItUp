@@ -7,10 +7,10 @@ const Navbar = () => {
   return (
     <nav>
       <div>
-        <img src={Logo} alt="logo" />
+        <img id="logo" src={Logo} alt="logo" />
       </div>
       <Search />
-      <div>
+      <div id="linksContainer">
         <Link to="/about">ABOUT US</Link>
         <Link to="/contact">CONTACT</Link>
         <Link to="/cart">MY CART</Link>

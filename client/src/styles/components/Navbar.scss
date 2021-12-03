@@ -1,0 +1,28 @@
+$link-font-size: 20px;
+
+nav {
+  margin: 20px $frame-width;
+  display: inline-flex;
+  & #logo {
+    height: 35px;
+    margin: 15px;
+  }
+  & #linksContainer {
+    & a {
+      padding: 5px;
+      text-decoration: none;
+      color: $secondary-color;
+      font-size: $link-font-size;
+      &:hover {
+        color: $main-color;
+      }
+      &:last-child {
+        color: $main-color;
+        font-weight: 700;
+        &:hover {
+          color: lighten($main-color, 10%);
+        }
+      }
+    }
+  }
+}
