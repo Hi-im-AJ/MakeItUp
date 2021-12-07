@@ -6,8 +6,9 @@ $card_width: 200px;
     padding: 0;
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(7, $card_width);
+    grid-template-columns: repeat(6, $card_width);
     gap: 40px;
+    position: relative;
     & li {
       text-align: center;
       width: $card_width;

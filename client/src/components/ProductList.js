@@ -9,7 +9,7 @@ const ProductList = () => {
   return (
     <InstantSearch searchClient={searchClient} indexName="products">
       <div id="productList">
-        <RefinementList attribute="categories" operator="and" searchable={false} />
+        <RefinementList attribute="categories" operator="and" searchable={true} />
         <div style={{ display: "none" }}>
           <SearchBox
             defaultRefinement={searchInput}

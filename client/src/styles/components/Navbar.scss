@@ -15,7 +15,7 @@ nav {
       position: relative;
       top: 50%;
       transform: translateY(-50%);
-      width: calc(100vw - ($frame-width * 2) - 680px);
+      width: calc(100vw - ($frame-width * 2) - 720px);
       border-radius: 20px;
       height: 40px;
       border-color: #adadad;
@@ -33,6 +33,7 @@ nav {
       text-decoration: none;
       color: $secondary-color;
       font-size: $link-font-size;
+      margin: 0 0.3rem;
       &:hover {
         color: $main-color;
       }

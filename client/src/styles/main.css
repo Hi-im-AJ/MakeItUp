@@ -7,6 +7,7 @@
 
 #homePage {
   display: inline-flex;
+  max-width: calc(100vw - 200px);
 }
 
 .frame {
@@ -31,7 +32,7 @@ nav #searchContainer input {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  width: calc(100vw - 200px - 680px);
+  width: calc(100vw - 200px - 720px);
   border-radius: 20px;
   height: 40px;
   border-color: #adadad;
@@ -49,6 +50,7 @@ nav #linksContainer a {
   text-decoration: none;
   color: #adadad;
   font-size: 20px;
+  margin: 0 0.3rem;
 }
 nav #linksContainer a:hover {
   color: #8f675e;
@@ -66,8 +68,9 @@ nav #linksContainer a:last-child:hover {
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(7, 200px);
+  grid-template-columns: repeat(6, 200px);
   gap: 40px;
+  position: relative;
 }
 .ais-Hits ul li {
   text-align: center;
@@ -84,6 +87,9 @@ nav #linksContainer a:last-child:hover {
   color: white;
 }
 
+#sideMenu {
+  width: 250px;
+}
 #sideMenu h5 {
   color: #8f675e;
 }
