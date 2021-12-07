@@ -9,10 +9,20 @@
   display: inline-flex;
   max-width: calc(100vw - 200px);
 }
+#homePage #productList {
+  display: inline-flex;
+}
 
 .frame {
   margin-left: 100px;
   margin-right: 100px;
+}
+
+.btn {
+  background: #8f675e;
+  border: none;
+  border-radius: 6px;
+  color: white;
 }
 
 nav {
@@ -80,11 +90,12 @@ nav #linksContainer a:last-child:hover {
   width: 200px;
 }
 .ais-Hits ul li button {
-  background: #8f675e;
-  border: none;
   width: 160px;
-  border-radius: 6px;
-  color: white;
+}
+
+.ais-RefinementList ul {
+  list-style: none;
+  width: 300px;
 }
 
 .ais-Pagination ul {

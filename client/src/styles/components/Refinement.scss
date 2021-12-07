@@ -1,2 +1,6 @@
-#refinement {
+.ais-RefinementList {
+  & ul {
+    list-style: none;
+    width: 300px;
+  }
 }

@@ -16,11 +16,7 @@ $card_width: 200px;
         width: $card_width;
       }
       & button {
-        background: $main-color;
-        border: none;
         width: calc($card_width - 40px);
-        border-radius: 6px;
-        color: white;
       }
     }
   }

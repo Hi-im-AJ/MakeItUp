@@ -6,6 +6,7 @@ import Contact from "./components/pages/Contact";
 import Cart from "./components/pages/Cart";
 import Navbar from "./components/Navbar";
 import NotFound from "./components/pages/NotFound";
+import Product from "./components/pages/Product";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/Contact" element={<Contact />} />
         <Route exact path="/cart" element={<Cart />} />
+        <Route path="/product/:id" element={<Product />} />
         <Route exact path="*" element={<NotFound />} />
       </Routes>
     </React.Fragment>

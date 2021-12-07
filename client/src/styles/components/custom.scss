@@ -2,3 +2,10 @@
   margin-left: $frame-width;
   margin-right: $frame-width;
 }
+
+.btn {
+  background: $main-color;
+  border: none;
+  border-radius: 6px;
+  color: white;
+}

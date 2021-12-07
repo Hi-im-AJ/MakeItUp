@@ -1,4 +1,7 @@
 #homePage {
   display: inline-flex;
   max-width: calc(100vw - ($frame-width * 2));
+  & #productList {
+    display: inline-flex;
+  }
 }
