@@ -5,6 +5,10 @@
   font-family: "Raleway", "Lora", sans-serif;
 }
 
+#homePage {
+  display: inline-flex;
+}
+
 .frame {
   margin-left: 100px;
   margin-right: 100px;
@@ -13,11 +17,29 @@
 nav {
   margin: 1rem 100px;
   display: inline-flex;
+  margin-bottom: 80px;
 }
 nav #logo {
   height: 65px;
   padding: 15px;
   cursor: pointer;
+}
+nav #searchContainer {
+  margin: 0 20px;
+}
+nav #searchContainer input {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(100vw - 200px - 680px);
+  border-radius: 20px;
+  height: 40px;
+  border-color: #adadad;
+  padding: 10px 20px;
+  border-width: 3px;
+}
+nav #searchContainer input:focus {
+  border-color: #a78179;
 }
 nav #linksContainer {
   margin: 1rem 0;
@@ -37,6 +59,38 @@ nav #linksContainer a:last-child {
 }
 nav #linksContainer a:last-child:hover {
   color: #a78179;
+}
+
+.ais-Hits ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, 200px);
+  gap: 40px;
+}
+.ais-Hits ul li {
+  text-align: center;
+  width: 200px;
+}
+.ais-Hits ul li img {
+  width: 200px;
+}
+.ais-Hits ul li button {
+  background: #8f675e;
+  border: none;
+  width: 160px;
+  border-radius: 6px;
+  color: white;
+}
+
+#sideMenu h5 {
+  color: #8f675e;
+}
+
+.ais-Pagination ul {
+  list-style: none;
+  display: inline-flex;
 }
 
 /*# sourceMappingURL=main.css.map */

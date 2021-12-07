@@ -10,5 +10,10 @@ $frame-width: 100px;
   font-family: "Raleway", "Lora", sans-serif;
 }
 
-@import "./components/Pages.scss";
+@import "./pages/Home.scss";
+
+@import "./components/custom.scss";
 @import "./components/Navbar.scss";
+@import "./components/Hits.scss";
+@import "./components/SideMenu.scss";
+@import "./components/Pagination.scss";

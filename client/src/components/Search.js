@@ -5,7 +5,7 @@ const Search = () => {
   const { setSearchInput } = useContext(ProductContext);
 
   return (
-    <div>
+    <div id="searchContainer">
       <input onChange={(e) => setSearchInput(e.target.value)} type="text" />
     </div>
   );

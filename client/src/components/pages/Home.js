@@ -4,7 +4,7 @@ import SideMenu from "../SideMenu";
 
 const Home = () => {
   return (
-    <div className="frame">
+    <div id="homePage" className="frame">
       <SideMenu />
       <ProductList />
     </div>

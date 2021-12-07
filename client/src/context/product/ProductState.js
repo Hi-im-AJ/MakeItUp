@@ -5,7 +5,7 @@ import { SET_SEARCH_INPUT } from "../types";
 
 const ProductState = (props) => {
   const initialState = {
-    search_input: "",
+    searchInput: "",
   };
   const [state, dispatch] = useReducer(ProductReducer, initialState);
 
@@ -18,7 +18,7 @@ const ProductState = (props) => {
   return (
     <ProductContext.Provider
       value={{
-        search_input: state.search_input,
+        searchInput: state.searchInput,
         setSearchInput,
       }}
     >
