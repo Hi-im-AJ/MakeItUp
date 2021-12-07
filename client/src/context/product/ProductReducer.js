@@ -5,7 +5,7 @@ const reducer = (state, action) => {
     case SET_SEARCH_INPUT:
       return {
         ...state,
-        search_input: action.payload,
+        searchInput: action.payload,
       };
 
     default:

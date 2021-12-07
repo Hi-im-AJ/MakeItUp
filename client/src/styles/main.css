@@ -87,13 +87,6 @@ nav #linksContainer a:last-child:hover {
   color: white;
 }
 
-#sideMenu {
-  width: 250px;
-}
-#sideMenu h5 {
-  color: #8f675e;
-}
-
 .ais-Pagination ul {
   list-style: none;
   display: inline-flex;
