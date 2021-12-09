@@ -1,4 +1,4 @@
-import { SET_SEARCH_INPUT } from "../types";
+import { SET_SEARCH_INPUT } from "./types";
 
 const reducer = (state, action) => {
   switch (action.type) {

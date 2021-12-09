@@ -8,8 +8,8 @@
     "ngrok": "ngrok http 5000",
     "server": "nodemon index.js",
     "start": "node index.js",
-    "dev": "concurrently \"cd client && npm run test\" \"cd client && npm run start\" \"cd client && npm run sass\" \"npm run start\" \"npm run ngrok\"",
-    "app": "concurrently \"cd client && npm run start\" \"cd client && npm run sass\" \"npm run start\" \"npm run ngrok\"",
+    "dev": "concurrently \"cd client && npm run test\" \"cd client && npm run start\" \"cd client && npm run sass\" \"npm run start\"",
+    "app": "concurrently \"cd client && npm run start\" \"cd client && npm run sass\" \"npm run start\"",
     "test": "cd client && npm run test"
   },
   "repository": {

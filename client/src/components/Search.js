@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import ProductContext from "../context/product/ProductContext";
+import GlobalContext from "../context/GlobalContext";
 
 const Search = () => {
-  const { setSearchInput } = useContext(ProductContext);
+  const { setSearchInput } = useContext(GlobalContext);
 
   return (
     <div id="searchContainer">

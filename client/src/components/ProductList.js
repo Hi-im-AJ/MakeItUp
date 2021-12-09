@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { InstantSearch, SearchBox, Hits, HitsPerPage, Pagination, RefinementList } from "react-instantsearch-dom";
 import searchClient from "../lib/algolia";
 import Hit from "./Hit";
-import ProductContext from "../context/product/ProductContext";
+import GlobalContext from "../context/GlobalContext";
 
 const ProductList = () => {
-  const { searchInput } = useContext(ProductContext);
+  const { searchInput } = useContext(GlobalContext);
   return (
     <InstantSearch searchClient={searchClient} indexName="products">
       <div id="productList">

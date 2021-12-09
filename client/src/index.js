@@ -6,15 +6,15 @@ import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/main.css";
 
-import ProductState from "./context/product/ProductState";
+import GlobalState from "./context/GlobalState";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ProductState>
+    <GlobalState>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </ProductState>
+    </GlobalState>
   </React.StrictMode>,
   document.getElementById("root")
 );
