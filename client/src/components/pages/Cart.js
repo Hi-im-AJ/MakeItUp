@@ -1,16 +1,24 @@
-import React from "react";
-import {useCartState} from "../../context/cart/cart";
+import React, { useContext } from "react";
 import CartItem from "../CartItem";
-const Cart = () => {
+import CartContext from "../../context/cart/CartContext";
 
-  const {line_items} = useCartState()
+const Cart = () => {
+  const { line_items } = useContext(CartContext);
 
   return (
-      <div>
-        <h2>Cart</h2>
-          {line_items.map(item => <CartItem name={item.name} quantity={item.quantity} line_total={item.line_total.formatted_with_code}/>)}
-      </div>
-  )
+    <div className="frame">
+      <h2>Cart</h2>
+      {line_items.map((item) => {
+        const {
+          name,
+          quantity,
+          line_total: { formatted_with_code },
+          id,
+        } = item;
+        return <CartItem name={name} id={id} quantity={quantity} line_total={formatted_with_code} />;
+      })}
+    </div>
+  );
 };
 
 export default Cart;

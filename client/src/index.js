@@ -6,15 +6,18 @@ import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/main.css";
 
-import GlobalState from "./context/GlobalState";
+import SearchState from "./context/search/SearchState";
+import CartState from "./context/cart/CartState";
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalState>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </GlobalState>
+    <SearchState>
+      <CartState>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </CartState>
+    </SearchState>
   </React.StrictMode>,
   document.getElementById("root")
 );
