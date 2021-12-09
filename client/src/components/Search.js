@@ -6,7 +6,7 @@ const Search = () => {
 
   return (
     <div id="searchContainer">
-      <input onChange={(e) => setSearchInput(e.target.value)} type="text" />
+      <input id="searchInput" name="searchInput" onChange={(e) => setSearchInput(e.target.value)} type="text" />
     </div>
   );
 };

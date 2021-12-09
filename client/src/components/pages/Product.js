@@ -17,14 +17,14 @@ const Product = () => {
   }, [id]);
 
   return product ? (
-    <div role="fulfilled">
+    <div role="article">
       {product.image ? <img src={product.image.url} alt={product.name} /> : <img src={NoImage} alt="Not found" />}
       <h1>{product.name}</h1>
       <p>{stripTags(product.description)}</p>
       <button className="btn">Add To Cart</button>
     </div>
   ) : (
-    <div role="loading"></div>
+    <div role="status"></div>
   );
 };
 

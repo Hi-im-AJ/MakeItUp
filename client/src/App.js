@@ -13,12 +13,12 @@ const App = () => {
     <React.Fragment>
       <Navbar />
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/Contact" element={<Contact />} />
-        <Route exact path="/cart" element={<Cart />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/product/:id" element={<Product />} />
-        <Route exact path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </React.Fragment>
   );
