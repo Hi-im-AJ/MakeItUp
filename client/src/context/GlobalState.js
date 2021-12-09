@@ -1,7 +1,8 @@
-import React, { useReducer } from "react";
+import React, {useEffect, useReducer} from "react";
 import GlobalContext from "./GlobalContext";
 import GlobalReducer from "./GlobalReducer";
-import { SET_SEARCH_INPUT } from "./types";
+import {SET_CART, SET_SEARCH_INPUT} from "./types";
+import commerce from "../lib/commerce";
 
 const GlobalState = (props) => {
   const initialState = {
@@ -19,6 +20,17 @@ const GlobalState = (props) => {
       dispatch({ type: SET_SEARCH_INPUT, payload: input });
     } catch (error) {}
   };
+  useEffect(() => {getCart()}, [] )
+
+  const setCart = (payload) => dispatch({type: SET_CART, payload})
+  const getCart = async () => {
+    try {
+      const cart = await commerce.cart.retrieve();
+      setCart(cart)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <GlobalContext.Provider
