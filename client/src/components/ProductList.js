@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { InstantSearch, SearchBox, Hits, HitsPerPage, Pagination, RefinementList } from "react-instantsearch-dom";
+import {InstantSearch, SearchBox, Hits, HitsPerPage, Pagination, RefinementList, SortBy} from "react-instantsearch-dom";
 import searchClient from "../lib/algolia";
 import Hit from "./Hit";
 import SearchContext from "../context/search/SearchContext";
@@ -9,7 +9,10 @@ const ProductList = () => {
   return (
     <InstantSearch searchClient={searchClient} indexName="products">
       <div id="productList">
+
+
         <div id="refinementContainer">
+
           <RefinementList
             attribute="categories.name"
             operator="and"
@@ -32,16 +35,24 @@ const ProductList = () => {
               }}
             />
           </div>
+          <SortBy
+            defaultRefinement="products"
+            items={[
+              { value: 'product_price_asc', label: "By lower price first" },
+              { value: 'product_price_desc', label: "By higher price first" },
+              { value: 'products', label: "By relevance"}
+            ]}
+          />
           <Hits hitComponent={Hit} />
           <div style={{ display: "none" }}>
             <HitsPerPage
-              defaultRefinement={5}
+              defaultRefinement={12}
               items={[
                 { value: 1, label: "Show 1 hits" },
                 { value: 5, label: "Show 5 hits" },
               ]}
             />
-          </div>
+          </div >
           <Pagination />
         </div>
       </div>

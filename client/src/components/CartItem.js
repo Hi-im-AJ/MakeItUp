@@ -4,13 +4,27 @@ import commerce from "../lib/commerce";
 
 const CartItem = ({ name, quantity, line_total, id }) => {
   const { setCart } = useContext(CartContext);
-  const removeFromCart = () => commerce.cart.remove(id).then(({ cart }) => setCart(cart));
+
+  const incrementByOne = () => commerce.cart
+    .update(id, {
+      quantity:quantity + 1
+    })
+    .then(({ cart }) => setCart(cart));
+
+  const decrementByOne = () => commerce.cart
+      .update(id, {
+          quantity:quantity - 1
+      })
+      .then(({ cart }) => setCart(cart));
+
+
   return (
     <div key={id}>
       <p>{name}</p>
       <p>{quantity}</p>
       <p>{line_total}</p>
-      <button onClick={removeFromCart}>-</button>
+      <button onClick={incrementByOne}>+</button>
+      <button onClick={decrementByOne}>-</button>
     </div>
   );
 };
