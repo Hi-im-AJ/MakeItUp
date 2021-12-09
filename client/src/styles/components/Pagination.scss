@@ -1,6 +1,7 @@
 .ais-Pagination {
   & ul {
     list-style: none;
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
   }
 }
