@@ -17,13 +17,15 @@ const Product = () => {
   }, [id]);
 
   return product ? (
-    <div>
+    <div role="fulfilled">
       {product.image ? <img src={product.image.url} alt={product.name} /> : <img src={NoImage} alt="Not found" />}
       <h1>{product.name}</h1>
       <p>{stripTags(product.description)}</p>
       <button className="btn">Add To Cart</button>
     </div>
-  ) : null;
+  ) : (
+    <div role="loading"></div>
+  );
 };
 
 export default Product;
