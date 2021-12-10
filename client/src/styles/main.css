@@ -24,6 +24,10 @@
   border-radius: 6px;
   color: white;
 }
+.btn:hover {
+  color: white;
+  background: #a78179;
+}
 
 nav {
   margin: 1rem 100px;
@@ -78,19 +82,41 @@ nav #linksContainer a:last-child:hover {
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(6, 200px);
+  grid-template-columns: repeat(5, 225px);
   gap: 40px;
-  position: relative;
 }
 .ais-Hits ul li {
   text-align: center;
-  width: 200px;
+  width: 225px;
+  height: 405px;
+  position: relative;
 }
-.ais-Hits ul li img {
-  width: 200px;
+.ais-Hits ul li a {
+  text-decoration: none;
+  color: #222;
+}
+.ais-Hits ul li a p {
+  margin-top: 30px;
+}
+.ais-Hits ul li a p:last-child {
+  color: #8f675e;
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.ais-Hits ul li a img {
+  width: 225px;
+  max-width: 225px;
+  min-width: 225px;
+  height: 225px;
 }
 .ais-Hits ul li button {
-  width: 160px;
+  width: 185px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .ais-RefinementList ul {
@@ -100,7 +126,8 @@ nav #linksContainer a:last-child:hover {
 
 .ais-Pagination ul {
   list-style: none;
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=main.css.map */

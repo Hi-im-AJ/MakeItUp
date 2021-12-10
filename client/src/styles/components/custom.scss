@@ -8,4 +8,8 @@
   border: none;
   border-radius: 6px;
   color: white;
+  &:hover {
+    color: white;
+    background: lighten($main-color, 10%);
+  }
 }
