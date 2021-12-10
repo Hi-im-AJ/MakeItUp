@@ -8,7 +8,7 @@ $card_height: calc($img_height + 180px);
     padding: 0;
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(5, $img_width);
+    grid-template-columns: repeat(4, $img_width);
     gap: 40px;
     & li {
       text-align: center;

@@ -89,7 +89,7 @@ nav #linksContainer a:last-child:hover {
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(5, 225px);
+  grid-template-columns: repeat(4, 225px);
   gap: 40px;
 }
 .ais-Hits ul li {
@@ -126,12 +126,16 @@ nav #linksContainer a:last-child:hover {
   transform: translateX(-50%);
 }
 
+.ais-RefinementList {
+  position: relative;
+}
 .ais-RefinementList ul {
   list-style: none;
   width: 350px;
 }
 .ais-RefinementList ul .ais-RefinementList-item {
   margin: 10px 0;
+  left: -22px;
   position: relative;
 }
 .ais-RefinementList ul .ais-RefinementList-item label {
