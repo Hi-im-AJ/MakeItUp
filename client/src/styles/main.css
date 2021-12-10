@@ -157,9 +157,32 @@ nav #linksContainer a:last-child:hover {
 }
 
 .ais-Pagination ul {
+  padding: 30px 0 40px 0;
   list-style: none;
   display: flex;
   justify-content: center;
+  margin: auto;
+}
+.ais-Pagination ul li {
+  margin: 0 8px;
+  font-size: 18px;
+}
+.ais-Pagination ul li a {
+  text-decoration: none;
+  color: white;
+  background: #8f675e;
+  padding: 5px;
+  border-radius: 6px;
+}
+.ais-Pagination ul li a:hover {
+  background: #a78179;
+  transition: 100ms;
+}
+.ais-Pagination ul li .ais-Pagination-link--selected {
+  background: #8f675e;
+}
+.ais-Pagination ul .ais-Pagination-item--disabled {
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */
