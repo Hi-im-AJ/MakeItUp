@@ -3,6 +3,7 @@
   padding: 0;
   margin: 0;
   font-family: "Raleway", "Lora", sans-serif;
+  overflow-x: hidden;
 }
 
 #homePage {
@@ -11,6 +12,12 @@
 }
 #homePage #productList {
   display: inline-flex;
+}
+#homePage #productList div {
+  margin: 0 30px;
+}
+#homePage #productList div:first-child {
+  margin-left: 0;
 }
 
 .frame {
@@ -121,7 +128,28 @@ nav #linksContainer a:last-child:hover {
 
 .ais-RefinementList ul {
   list-style: none;
-  width: 300px;
+  width: 350px;
+}
+.ais-RefinementList ul .ais-RefinementList-item {
+  margin: 10px 0;
+  position: relative;
+}
+.ais-RefinementList ul .ais-RefinementList-item label {
+  cursor: pointer;
+}
+.ais-RefinementList ul .ais-RefinementList-item label input {
+  cursor: pointer;
+}
+.ais-RefinementList ul .ais-RefinementList-item label span {
+  padding: 0 10px;
+}
+.ais-RefinementList ul .ais-RefinementList-item label .ais-RefinementList-count {
+  position: absolute;
+  left: calc(100% - 10px);
+  transform: translateX(-100%);
+}
+.ais-RefinementList ul .ais-RefinementList-item--selected span {
+  color: #8f675e;
 }
 
 .ais-Pagination ul {

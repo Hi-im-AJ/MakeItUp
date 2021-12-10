@@ -1,6 +1,29 @@
 .ais-RefinementList {
   & ul {
     list-style: none;
-    width: 300px;
+    width: 350px;
+    & .ais-RefinementList-item {
+      margin: 10px 0;
+      position: relative;
+      & label {
+        cursor: pointer;
+        & input {
+          cursor: pointer;
+        }
+        & span {
+          padding: 0 10px;
+        }
+        & .ais-RefinementList-count {
+          position: absolute;
+          left: calc(100% - 10px);
+          transform: translateX(-100%);
+        }
+      }
+    }
+    & .ais-RefinementList-item--selected {
+      & span {
+        color: $main_color;
+      }
+    }
   }
 }

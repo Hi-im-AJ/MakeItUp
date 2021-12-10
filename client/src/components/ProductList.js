@@ -1,5 +1,13 @@
 import React, { useContext } from "react";
-import {InstantSearch, SearchBox, Hits, HitsPerPage, Pagination, RefinementList, SortBy} from "react-instantsearch-dom";
+import {
+  InstantSearch,
+  SearchBox,
+  Hits,
+  HitsPerPage,
+  Pagination,
+  RefinementList,
+  SortBy,
+} from "react-instantsearch-dom";
 import searchClient from "../lib/algolia";
 import Hit from "./Hit";
 import SearchContext from "../context/search/SearchContext";
@@ -9,21 +17,16 @@ const ProductList = () => {
   return (
     <InstantSearch searchClient={searchClient} indexName="products">
       <div id="productList">
-
-
-        <div id="refinementContainer">
-
-          <RefinementList
-            attribute="categories.name"
-            operator="and"
-            transformItems={(items) =>
-              items.map((item) => ({
-                ...item,
-                count: `(${item.count})`,
-              }))
-            }
-          />
-        </div>
+        <RefinementList
+          attribute="categories.name"
+          operator="and"
+          transformItems={(items) =>
+            items.map((item) => ({
+              ...item,
+              count: `(${item.count})`,
+            }))
+          }
+        />
         <div>
           <div style={{ display: "none" }}>
             <SearchBox
@@ -38,9 +41,9 @@ const ProductList = () => {
           <SortBy
             defaultRefinement="products"
             items={[
-              { value: 'product_price_asc', label: "By lower price first" },
-              { value: 'product_price_desc', label: "By higher price first" },
-              { value: 'products', label: "By relevance"}
+              { value: "product_price_asc", label: "By lower price first" },
+              { value: "product_price_desc", label: "By higher price first" },
+              { value: "products", label: "By relevance" },
             ]}
           />
           <Hits hitComponent={Hit} />
@@ -52,7 +55,7 @@ const ProductList = () => {
                 { value: 5, label: "Show 5 hits" },
               ]}
             />
-          </div >
+          </div>
           <Pagination />
         </div>
       </div>
