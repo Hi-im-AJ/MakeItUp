@@ -8,6 +8,7 @@ const CartState = (props) => {
     total_items: 0,
     total_unique_items: 0,
     line_items: [],
+    subtotal: 0,
   };
   const [state, dispatch] = useReducer(CartReducer, initialState);
 
@@ -21,6 +22,7 @@ const CartState = (props) => {
         total_items: state.total_items,
         total_unique_items: state.total_unique_items,
         line_items: state.line_items,
+        subtotal: state.subtotal,
         setCart,
       }}
     >
