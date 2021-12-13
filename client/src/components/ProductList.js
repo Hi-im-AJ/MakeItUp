@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import {
   InstantSearch,
   SearchBox,
-  Hits,
   HitsPerPage,
   Pagination,
   RefinementList,
@@ -48,7 +47,7 @@ const ProductList = () => {
             ]}
           />
 
-          <InfiniteHits minHitsPerPage={2}/> {/*infinitehits.js*/}
+          <InfiniteHits minHitsPerPage={2}/>
 
           <div style={{ display: "none" }}>
             <HitsPerPage
@@ -59,7 +58,6 @@ const ProductList = () => {
               ]}
             />
           </div>
-          <Pagination />
         </div>
       </div>
     </InstantSearch>
