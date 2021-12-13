@@ -166,6 +166,7 @@ nav #linksContainer a:last-child:hover {
 .ais-Pagination ul li {
   margin: 0 8px;
   font-size: 18px;
+  height: 40px;
 }
 .ais-Pagination ul li a {
   text-decoration: none;
