@@ -3,8 +3,8 @@ import CartItem from "../CartItem";
 import CartContext from "../../context/cart/CartContext";
 
 const Cart = () => {
-  const { line_items, subtotal } = useContext(CartContext);
-  const {formatted_with_code: total_price} = subtotal
+  const { line_items /*, subtotal*/ } = useContext(CartContext);
+  //const {formatted_with_code: total_price} = subtotal
   return (
     <div className="frame">
       <h2>Cart</h2>

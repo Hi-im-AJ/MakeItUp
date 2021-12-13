@@ -1,16 +1,8 @@
 import React, { useContext } from "react";
-import {
-  InstantSearch,
-  SearchBox,
-  HitsPerPage,
-  Pagination,
-  RefinementList,
-  SortBy,
-} from "react-instantsearch-dom";
+import { InstantSearch, SearchBox, HitsPerPage, RefinementList, SortBy } from "react-instantsearch-dom";
 import searchClient from "../lib/algolia";
 import SearchContext from "../context/search/SearchContext";
 import InfiniteHits from "./InfiniteHits";
-
 
 const ProductList = () => {
   const { searchInput } = useContext(SearchContext);
@@ -47,7 +39,7 @@ const ProductList = () => {
             ]}
           />
 
-          <InfiniteHits minHitsPerPage={2}/>
+          <InfiniteHits minHitsPerPage={2} />
 
           <div style={{ display: "none" }}>
             <HitsPerPage

@@ -1,14 +1,13 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const algolia = require("./routes/algolia");
 
 dotenv.config({ path: "./config/config.env" });
-
 const app = express();
-
 app.use(express.json());
 
-app.use("/api/algolia", algolia);
+const stripe = require("./routes/stripe");
+
+app.use("/api/stripe", stripe);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
