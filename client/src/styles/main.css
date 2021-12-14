@@ -60,6 +60,7 @@ nav #searchContainer input {
   padding: 10px 20px;
   border-width: 3px;
 }
+
 nav #searchContainer input:focus {
   border-color: #a78179;
 }
@@ -147,7 +148,11 @@ nav #linksContainer a:last-child:hover {
 .ais-RefinementList ul .ais-RefinementList-item label span {
   padding: 0 10px;
 }
-.ais-RefinementList ul .ais-RefinementList-item label .ais-RefinementList-count {
+.ais-RefinementList
+  ul
+  .ais-RefinementList-item
+  label
+  .ais-RefinementList-count {
   position: absolute;
   left: calc(100% - 10px);
   transform: translateX(-100%);
@@ -184,6 +189,30 @@ nav #linksContainer a:last-child:hover {
 }
 .ais-Pagination ul .ais-Pagination-item--disabled {
   display: none;
+}
+
+.cartItems {
+  margin: 1rem 0;
+}
+.lineCart {
+  width: 10%;
+  margin-bottom: 50px;
+}
+
+.Cartpricing {
+  left: 80%;
+}
+
+.cartnumbernav {
+  position: absolute;
+  background: #8f675e;
+  border-radius: 75%;
+  height: 20px;
+  width: 20px;
+  font-size: 12px;
+  text-align: center;
+
+  color: white;
 }
 
 /*# sourceMappingURL=main.css.map */
