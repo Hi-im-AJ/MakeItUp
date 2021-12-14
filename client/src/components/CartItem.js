@@ -2,8 +2,11 @@ import React, { useContext } from "react";
 import CartContext from "../context/cart/CartContext";
 import commerce from "../lib/commerce";
 
-const CartItem = ({ name, quantity, line_total, id }) => {
+
+
+const CartItem = ({ name, quantity, line_total, id, line_items}) => {
   const { setCart } = useContext(CartContext);
+
 
   const incrementByOne = () => commerce.cart
     .update(id, {
@@ -20,11 +23,12 @@ const CartItem = ({ name, quantity, line_total, id }) => {
 
   return (
     <div key={id}>
+      <hr/>
       <p>{name}</p>
       <p>{quantity}</p>
+      <button className="btn" onClick={incrementByOne}>+</button>
+      <button className="btn" onClick={decrementByOne}>-</button>
       <p>{line_total}</p>
-      <button onClick={incrementByOne}>+</button>
-      <button onClick={decrementByOne}>-</button>
     </div>
   );
 };
