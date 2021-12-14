@@ -8,7 +8,6 @@ const Cart = () => {
 
 
   if (total_items == 0) return <h4 align="center">Your cart is empty</h4>
-
   return (
     <div className="frame">
       <h2>Cart</h2>
