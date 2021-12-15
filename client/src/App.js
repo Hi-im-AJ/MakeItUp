@@ -5,6 +5,7 @@ import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
 import Cart from "./components/pages/Cart";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import NotFound from "./components/pages/NotFound";
 import Product from "./components/pages/Product";
 
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/product/:id" element={<Product />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </React.Fragment>
   );
 };
