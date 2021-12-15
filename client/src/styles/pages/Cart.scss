@@ -32,4 +32,17 @@
       opacity: 0.5;
     }
   }
+  & #totalsContainer {
+    height: calc(100% + 10rem);
+    background: red;
+  }
+  & #checkoutBtn {
+    background: $main-color;
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 5rem;
+    &:hover {
+      background: ligthen($main-color, 10%);
+    }
+  }
 }

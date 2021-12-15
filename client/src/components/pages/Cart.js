@@ -4,8 +4,9 @@ import CartItem from "../CartItem";
 import CartContext from "../../context/cart/CartContext";
 
 const Cart = () => {
-  const { line_items, subtotal } = useContext(CartContext);
-  const { formatted_with_code: total_price } = subtotal;
+  const { line_items, subtotal, total_items } = useContext(CartContext);
+
+  if (total_items === 0) return <h4 align="center">Your cart is empty</h4>;
   return (
     <div className="frame" id="cartPage">
       <h2>Cart</h2>
@@ -31,21 +32,22 @@ const Cart = () => {
           );
         })}
       </div>
-      <ul>
-        <li>
-          <p>Subtotal</p>
-          <p>{total_price /* minus shipping fee */}</p>
-        </li>
-        <li>
-          <p>Shipping fee</p>
-          <p>UNDEFINED</p>
-        </li>
-        <li>
-          <p>Total</p>
-          <p>{total_price}</p>
-        </li>
-      </ul>
-      <Link to="/checkout">Checkout</Link>
+      <div className="totalsContainer" align="right">
+        <p>
+          Sub total: <strong>{subtotal.formatted_with_symbol} </strong>
+        </p>
+        <hr className="lineCart" />
+        <p>
+          Shipping fee: <strong>{subtotal.formatted_with_symbol} </strong>
+        </p>
+        <hr className="lineCart" />
+        <p>
+          Total: <strong>{subtotal.formatted_with_symbol} </strong>
+        </p>
+        <Link id="checkoutBtn" to="/checkout">
+          Checkout
+        </Link>
+      </div>
     </div>
   );
 };

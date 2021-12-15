@@ -1,11 +1,9 @@
 #homePage {
   display: inline-flex;
-  max-width: calc(100vw - ($frame-width * 2));
   & #productList {
     display: inline-flex;
-    & div {
-      margin: 0 30px;
-    }
+    justify-content: space-evenly;
+    width: calc(100vw - (2 * $frame_width));
     & div:first-child {
       margin-left: 0;
     }

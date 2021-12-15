@@ -26,7 +26,7 @@ const App = () => {
     // eslint-disable-next-line
   }, []);
   return (
-    <React.Fragment>
+    <main style={{ overflowX: "hidden" }}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -37,7 +37,7 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
-    </React.Fragment>
+    </main>
   );
 };
 
