@@ -4,6 +4,8 @@ nav {
   margin: 1rem $frame-width;
   display: inline-flex;
   margin-bottom: 80px;
+  justify-content: space-between;
+  width: calc(100vw - ($frame-width * 2));
   & #logo {
     height: 65px;
     padding: 15px;
@@ -15,7 +17,7 @@ nav {
       position: relative;
       top: 50%;
       transform: translateY(-50%);
-      width: calc(100vw - ($frame-width * 2) - 720px);
+      width: calc(100vw - ($frame-width * 2) - 50rem);
       border-radius: 20px;
       height: 40px;
       border-color: #adadad;
@@ -28,6 +30,7 @@ nav {
   }
   & #linksContainer {
     margin: 1rem 0;
+    height: 2rem;
     & a {
       padding: 0.25rem;
       text-decoration: none;

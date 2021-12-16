@@ -1,0 +1,48 @@
+#cartPage {
+  margin: 0 28rem;
+  & h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $main-color;
+    font-weight: 700;
+  }
+  & #cartHeader {
+    display: inline-flex;
+    width: 100%;
+    position: relative;
+    margin-top: 2rem;
+    & h6:last-child {
+      position: absolute;
+      right: 0;
+    }
+  }
+  #firstHr {
+    margin-top: 0;
+  }
+  & hr {
+    opacity: 0.3;
+    height: 0.08rem;
+  }
+  & #productCartContainer {
+    & hr:last-child {
+      height: 0.16rem;
+      opacity: 0.5;
+    }
+  }
+  & #totalsContainer {
+    height: calc(100% + 10rem);
+    background: red;
+  }
+  & #checkoutBtn {
+    background: $main-color;
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 5rem;
+    &:hover {
+      background: ligthen($main-color, 10%);
+    }
+  }
+}

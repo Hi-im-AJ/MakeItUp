@@ -1,0 +1,33 @@
+.CartItem {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  & .desc {
+    width: 40rem;
+    display: flex;
+    align-items: center;
+    & img {
+      margin-right: 3rem;
+    }
+    & p {
+      font-size: 1.2rem;
+      font-family: "Lora";
+    }
+  }
+  & .quantity {
+    display: flex;
+    justify-content: space-evenly;
+    width: 10rem;
+  }
+  & img {
+    border: 2px solid;
+    border-color: $main_color;
+    height: 10rem;
+    width: 10rem;
+  }
+  & button {
+    height: 2rem;
+    width: 2rem;
+  }
+}

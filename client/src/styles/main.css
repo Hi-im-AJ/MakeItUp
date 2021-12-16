@@ -3,26 +3,76 @@
   padding: 0;
   margin: 0;
   font-family: "Raleway", "Lora", sans-serif;
-  overflow-x: hidden;
+}
+
+.shadow {
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 #homePage {
   display: inline-flex;
-  max-width: calc(100vw - 200px);
 }
 #homePage #productList {
   display: inline-flex;
-}
-#homePage #productList div {
-  margin: 0 30px;
+  width: calc(100vw - 20rem);
 }
 #homePage #productList div:first-child {
-  margin-left: 0;
+  margin-left: 0.3rem;
+}
+#homePage #productList div:last-child {
+  margin-left: 8rem;
+}
+
+#cartPage {
+  margin: 0 28rem;
+}
+#cartPage h1,
+#cartPage h2,
+#cartPage h3,
+#cartPage h4,
+#cartPage h5,
+#cartPage h6 {
+  color: #8f675e;
+  font-weight: 700;
+}
+#cartPage #cartHeader {
+  display: inline-flex;
+  width: 100%;
+  position: relative;
+  margin-top: 2rem;
+}
+#cartPage #cartHeader h6:last-child {
+  position: absolute;
+  right: 0;
+}
+#cartPage #firstHr {
+  margin-top: 0;
+}
+#cartPage hr {
+  opacity: 0.3;
+  height: 0.08rem;
+}
+#cartPage #productCartContainer hr:last-child {
+  height: 0.16rem;
+  opacity: 0.5;
+}
+#cartPage #totalsContainer {
+  height: calc(100% + 10rem);
+  background: red;
+}
+#cartPage #checkoutBtn {
+  background: #8f675e;
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 5rem;
+}
+#cartPage #checkoutBtn:hover {
+  background: ligthen(#8f675e, 10%);
 }
 
 .frame {
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 10rem;
+  margin-right: 10rem;
 }
 
 .btn {
@@ -37,9 +87,11 @@
 }
 
 nav {
-  margin: 1rem 100px;
+  margin: 1rem 10rem;
   display: inline-flex;
   margin-bottom: 80px;
+  justify-content: space-between;
+  width: calc(100vw - 20rem);
 }
 nav #logo {
   height: 65px;
@@ -53,7 +105,7 @@ nav #searchContainer input {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  width: calc(100vw - 200px - 720px);
+  width: calc(100vw - 20rem - 50rem);
   border-radius: 20px;
   height: 40px;
   border-color: #adadad;
@@ -65,6 +117,7 @@ nav #searchContainer input:focus {
 }
 nav #linksContainer {
   margin: 1rem 0;
+  height: 2rem;
 }
 nav #linksContainer a {
   padding: 0.25rem;
@@ -84,7 +137,7 @@ nav #linksContainer a:last-child:hover {
   color: #a78179;
 }
 
-.ais-Hits ul {
+.ais-InfiniteHits ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -92,33 +145,33 @@ nav #linksContainer a:last-child:hover {
   grid-template-columns: repeat(4, 225px);
   gap: 40px;
 }
-.ais-Hits ul li {
+.ais-InfiniteHits ul li {
   text-align: center;
   width: 225px;
   height: 405px;
   position: relative;
 }
-.ais-Hits ul li a {
+.ais-InfiniteHits ul li a {
   text-decoration: none;
   color: #222;
 }
-.ais-Hits ul li a p {
+.ais-InfiniteHits ul li a p {
   margin-top: 30px;
 }
-.ais-Hits ul li a p:last-child {
+.ais-InfiniteHits ul li a p:last-child {
   color: #8f675e;
   position: absolute;
   bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
 }
-.ais-Hits ul li a img {
+.ais-InfiniteHits ul li a img {
   width: 225px;
   max-width: 225px;
   min-width: 225px;
   height: 225px;
 }
-.ais-Hits ul li button {
+.ais-InfiniteHits ul li button {
   width: 185px;
   position: absolute;
   bottom: 20px;
@@ -131,7 +184,7 @@ nav #linksContainer a:last-child:hover {
 }
 .ais-RefinementList ul {
   list-style: none;
-  width: 350px;
+  width: 15rem;
 }
 .ais-RefinementList ul .ais-RefinementList-item {
   margin: 10px 0;
@@ -140,6 +193,7 @@ nav #linksContainer a:last-child:hover {
 }
 .ais-RefinementList ul .ais-RefinementList-item label {
   cursor: pointer;
+  width: 10rem;
 }
 .ais-RefinementList ul .ais-RefinementList-item label input {
   cursor: pointer;
@@ -166,6 +220,7 @@ nav #linksContainer a:last-child:hover {
 .ais-Pagination ul li {
   margin: 0 8px;
   font-size: 18px;
+  height: 40px;
 }
 .ais-Pagination ul li a {
   text-decoration: none;
@@ -183,6 +238,40 @@ nav #linksContainer a:last-child:hover {
 }
 .ais-Pagination ul .ais-Pagination-item--disabled {
   display: none;
+}
+
+.CartItem {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.CartItem .desc {
+  width: 40rem;
+  display: flex;
+  align-items: center;
+}
+.CartItem .desc img {
+  margin-right: 3rem;
+}
+.CartItem .desc p {
+  font-size: 1.2rem;
+  font-family: "Lora";
+}
+.CartItem .quantity {
+  display: flex;
+  justify-content: space-evenly;
+  width: 10rem;
+}
+.CartItem img {
+  border: 2px solid;
+  border-color: #8f675e;
+  height: 10rem;
+  width: 10rem;
+}
+.CartItem button {
+  height: 2rem;
+  width: 2rem;
 }
 
 /*# sourceMappingURL=main.css.map */
