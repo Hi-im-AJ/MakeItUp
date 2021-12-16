@@ -1,5 +1,5 @@
 import React from "react";
-import AdressForm from "../AdressForm"
+import AdressForm from "../AddressForm"
 
 const Checkout = () => {
   return(
