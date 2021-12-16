@@ -2,13 +2,14 @@
   position: relative;
   & ul {
     list-style: none;
-    width: 20.5rem;
+    width: 15rem;
     & .ais-RefinementList-item {
       margin: 10px 0;
       left: -22px;
       position: relative;
       & label {
         cursor: pointer;
+        width: 10rem;
         & input {
           cursor: pointer;
         }

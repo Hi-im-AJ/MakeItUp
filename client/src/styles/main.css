@@ -14,11 +14,13 @@
 }
 #homePage #productList {
   display: inline-flex;
-  justify-content: space-evenly;
   width: calc(100vw - 20rem);
 }
 #homePage #productList div:first-child {
-  margin-left: 0;
+  margin-left: 0.3rem;
+}
+#homePage #productList div:last-child {
+  margin-left: 8rem;
 }
 
 #cartPage {
@@ -88,7 +90,7 @@ nav {
   margin: 1rem 10rem;
   display: inline-flex;
   margin-bottom: 80px;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: calc(100vw - 20rem);
 }
 nav #logo {
@@ -103,7 +105,7 @@ nav #searchContainer input {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  width: calc(100vw - 20rem - 720px);
+  width: calc(100vw - 20rem - 50rem);
   border-radius: 20px;
   height: 40px;
   border-color: #adadad;
@@ -182,7 +184,7 @@ nav #linksContainer a:last-child:hover {
 }
 .ais-RefinementList ul {
   list-style: none;
-  width: 20.5rem;
+  width: 15rem;
 }
 .ais-RefinementList ul .ais-RefinementList-item {
   margin: 10px 0;
@@ -191,6 +193,7 @@ nav #linksContainer a:last-child:hover {
 }
 .ais-RefinementList ul .ais-RefinementList-item label {
   cursor: pointer;
+  width: 10rem;
 }
 .ais-RefinementList ul .ais-RefinementList-item label input {
   cursor: pointer;
