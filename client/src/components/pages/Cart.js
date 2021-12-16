@@ -45,7 +45,7 @@ const Cart = () => {
           Total: <strong>{subtotal.formatted_with_symbol} </strong>
         </p>
         <Link id="checkoutBtn" to="/checkout">
-          Checkout
+          <button>Checkout</button>
         </Link>
       </div>
     </div>

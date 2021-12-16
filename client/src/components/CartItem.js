@@ -26,9 +26,9 @@ const CartItem = ({ img, name, quantity, line_total, id }) => {
         <p id="cartItemName">{name}</p>
       </div>
       <div className="quantity">
-        <button onClick={incrementByOne}>+</button>
-        <p>{quantity}</p>
         <button onClick={decrementByOne}>-</button>
+        <p>{quantity}</p>
+        <button onClick={incrementByOne}>+</button>
       </div>
       <p>{line_total}</p>
     </div>
