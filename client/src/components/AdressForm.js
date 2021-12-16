@@ -1,9 +1,22 @@
-import React from "react";
+
+import React,{ useState } from "react";
 
 const AdressForm = () => {
 
     //First name, Last name, Country, Address,
     // Email, City, zip code, telephone
+
+    const [formData, setFormData] = useState({
+        firstName: "", 
+        lastName: "",
+        address: "",
+        email: "",
+        city: "",
+        zipCode: "",
+        telephone: "",
+        
+    })
+
     return(
 
      <form>
