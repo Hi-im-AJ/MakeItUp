@@ -16,37 +16,54 @@ const AdressForm = () => {
         telephone: "",
         
     })
+      
+    const handleChange = (event) => {
+    
+        setFormData({...formData, [event.target.name]:event.target.value})
+    }
+
+    const handleSubmit = (event) => {
+
+        event.preventDefault()
+    
+    }
 
     return(
-
-     <form>
+        
+     <form onSubmit={handleSubmit}>
         <label>
            First Name:
-          <input type="text" name="firstName" />
+          <input type="text" name="firstName" onChange={handleChange}/>
         </label>
+
         <label>
             Last Name:
-            <input type="text" name="lastName"/>
+            <input type="text" name="lastName" onChange={handleChange}/>
         </label>
+
         <label>
             Address:
-            <input type="text" name="address"/>
+            <input type="text" name="address" onChange={handleChange} />
         </label>
+
         <label>
             Email:
-            <input type="text" name="email"/>
+            <input type="text" name="email" onChange={handleChange} />
         </label>
+
         <label>
             City:
-            <input type="text" name="city"/>
+            <input type="text" name="city" onChange={handleChange} />
         </label>
+
         <label>
             Zip Code:
-            <input type="number" name="zipCode"/>
+            <input type="number" name="zipCode" onChange={handleChange}/>
         </label>
+
         <label>
             Telephone:
-            <input type="number" name="telephone"/>
+            <input type="number" name="telephone" onChange={handleChange}/>
         </label>
 
         <input type="submit" value="Submit" />
