@@ -19,15 +19,19 @@
     display: flex;
     justify-content: space-evenly;
     width: 10rem;
+    & button {
+      height: 2rem;
+      width: 2rem;
+      border: none;
+      background: $main-color;
+      color: white;
+      border-radius: 0.2rem;
+    }
   }
   & img {
     border: 2px solid;
     border-color: $main_color;
     height: 10rem;
     width: 10rem;
-  }
-  & button {
-    height: 2rem;
-    width: 2rem;
   }
 }

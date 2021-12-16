@@ -32,17 +32,28 @@
       opacity: 0.5;
     }
   }
-  & #totalsContainer {
-    height: calc(100% + 10rem);
-    background: red;
-  }
-  & #checkoutBtn {
-    background: $main-color;
-    color: white;
-    text-decoration: none;
-    padding: 0.75rem 5rem;
-    &:hover {
-      background: ligthen($main-color, 10%);
+  & .totalsContainer {
+    width: 12.7rem;
+    height: 100%;
+    position: relative;
+    left: 100%;
+    transform: translateX(-100%);
+    margin: 3rem 0;
+    & p,
+    & a {
+      padding: 0.5rem 0;
+    }
+    & #checkoutBtn {
+      & button {
+        padding: 0.5rem 4rem;
+        background: $main-color;
+        color: white;
+        text-decoration: none;
+        border: none;
+      }
+      &:hover {
+        background: ligthen($main-color, 10%);
+      }
     }
   }
 }

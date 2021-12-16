@@ -56,17 +56,25 @@
   height: 0.16rem;
   opacity: 0.5;
 }
-#cartPage #totalsContainer {
-  height: calc(100% + 10rem);
-  background: red;
+#cartPage .totalsContainer {
+  width: 12.7rem;
+  height: 100%;
+  position: relative;
+  left: 100%;
+  transform: translateX(-100%);
+  margin: 3rem 0;
 }
-#cartPage #checkoutBtn {
+#cartPage .totalsContainer p, #cartPage .totalsContainer a {
+  padding: 0.5rem 0;
+}
+#cartPage .totalsContainer #checkoutBtn button {
+  padding: 0.5rem 4rem;
   background: #8f675e;
   color: white;
   text-decoration: none;
-  padding: 0.75rem 5rem;
+  border: none;
 }
-#cartPage #checkoutBtn:hover {
+#cartPage .totalsContainer #checkoutBtn:hover {
   background: ligthen(#8f675e, 10%);
 }
 
@@ -135,6 +143,37 @@ nav #linksContainer a:last-child {
 }
 nav #linksContainer a:last-child:hover {
   color: #a78179;
+}
+nav #linksContainer #cart {
+  position: relative;
+  top: -0.3rem;
+}
+nav #linksContainer #cart img {
+  filter: invert(40%) sepia(8%) saturate(1612%) hue-rotate(323deg) brightness(103%) contrast(83%);
+  height: 2.5rem;
+  width: 2.5rem;
+}
+nav #linksContainer #cart img:hover {
+  filter: invert(52%) sepia(24%) saturate(406%) hue-rotate(323deg) brightness(99%) contrast(88%);
+}
+nav #linksContainer #cart span {
+  position: absolute;
+  bottom: -0.5rem;
+  right: 0.2rem;
+  background: #e22;
+  border-radius: 100%;
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: white;
+}
+nav #linksContainer #cart span p {
+  position: relative;
+  top: 50%;
+  transform: translateY(-70%);
+  width: 1rem;
+  height: 1rem;
 }
 
 .ais-InfiniteHits ul {
@@ -263,15 +302,19 @@ nav #linksContainer a:last-child:hover {
   justify-content: space-evenly;
   width: 10rem;
 }
+.CartItem .quantity button {
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  background: #8f675e;
+  color: white;
+  border-radius: 0.2rem;
+}
 .CartItem img {
   border: 2px solid;
   border-color: #8f675e;
   height: 10rem;
   width: 10rem;
-}
-.CartItem button {
-  height: 2rem;
-  width: 2rem;
 }
 
 /*# sourceMappingURL=main.css.map */
