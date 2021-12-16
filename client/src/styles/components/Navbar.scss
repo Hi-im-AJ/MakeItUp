@@ -48,5 +48,31 @@ nav {
         }
       }
     }
+    & #cart {
+      position: relative;
+      top: -0.3rem;
+      & img {
+        filter: invert(40%) sepia(8%) saturate(1612%) hue-rotate(323deg) brightness(103%) contrast(83%);
+        height: 2.5rem;
+        width: 2.5rem;
+      }
+      & span {
+        position: absolute;
+        bottom: -0.5rem;
+        right: 0.2rem;
+        background: #e22;
+        border-radius: 100%;
+        width: 1rem;
+        height: 1rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: white;
+        & p {
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
   }
 }

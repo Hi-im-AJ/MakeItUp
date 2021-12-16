@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Search from "./Search";
 import Logo from "../assets/logo.png";
+import Cart from "../assets/cart.svg";
 import CartContext from "../context/cart/CartContext";
 
 const Navbar = () => {
@@ -17,8 +18,11 @@ const Navbar = () => {
       <div id="linksContainer">
         <Link to="/about">ABOUT US</Link>
         <Link to="/contact">CONTACT</Link>
-        <Link to="/cart">
-          MY CART<h7 className="cartnumbernav">{total_items}</h7>
+        <Link id="cart" to="/cart">
+          <img src={Cart} alt="cart" />
+          <span className="cartnumbernav">
+            <p>{total_items}</p>
+          </span>
         </Link>
       </div>
     </nav>
