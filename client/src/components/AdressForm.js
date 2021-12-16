@@ -36,12 +36,10 @@ const AdressForm = () => {
             <input type="number" name="telephone"/>
         </label>
 
-
-
-
         <input type="submit" value="Submit" />
         
     </form>
     )
- 
 }
+
+export default AdressForm;

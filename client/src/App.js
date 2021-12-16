@@ -11,6 +11,7 @@ import Product from "./components/pages/Product";
 
 import commerce from "./lib/commerce";
 import CartContext from "./context/cart/CartContext";
+import Checkout from "./components/pages/Checkout";
 
 const App = () => {
   const { setCart } = useContext(CartContext);
@@ -31,8 +32,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/Contact" element={<Contact />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout/>} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
