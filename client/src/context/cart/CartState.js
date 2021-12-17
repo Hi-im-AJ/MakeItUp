@@ -9,7 +9,9 @@ const CartState = (props) => {
     total_unique_items: 0,
     line_items: [],
     subtotal: 0,
+    id: ""
   };
+
   const [state, dispatch] = useReducer(CartReducer, initialState);
 
   const setCart = (payload) => {
@@ -23,6 +25,7 @@ const CartState = (props) => {
         total_unique_items: state.total_unique_items,
         line_items: state.line_items,
         subtotal: state.subtotal,
+        id: state.id,
         setCart,
       }}
     >
