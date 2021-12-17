@@ -6,6 +6,7 @@ import InfiniteHits from "./InfiniteHits";
 
 const ProductList = () => {
   const { searchInput } = useContext(SearchContext);
+
   return (
     <InstantSearch searchClient={searchClient} indexName="products">
       <div id="productList">

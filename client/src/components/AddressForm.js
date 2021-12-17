@@ -1,11 +1,26 @@
 
-import React,{ useState } from "react";
+import React, {useEffect, useState} from "react";
+import commerce from "../lib/commerce";
 
-const AdressForm = () => {
+const AddressForm = ({checkoutToken}) => {
+
+    const [shippingOptions, setShippingOptions] = useState([])
+
+    const fetchShippingOptions = () => {
+        commerce.checkout.getShippingOptions(checkoutToken, {
+            country: "DK"
+        })
+          .then((options) => {
+              setShippingOptions(options)
+              console.log(shippingOptions)
+          })
+    }
+    useEffect(() => {
+        fetchShippingOptions()
+    }, [checkoutToken])
 
     //First name, Last name, Country, Address,
     // Email, City, zip code, telephone
-
     const [formData, setFormData] = useState({
         firstName: "", 
         lastName: "",
@@ -14,7 +29,6 @@ const AdressForm = () => {
         city: "",
         zipCode: "",
         telephone: "",
-        
     })
       
     const handleChange = (event) => {
@@ -25,7 +39,6 @@ const AdressForm = () => {
     const handleSubmit = (event) => {
 
         event.preventDefault()
-    
     }
 
     return(
@@ -72,4 +85,4 @@ const AdressForm = () => {
     )
 }
 
-export default AdressForm;
+export default AddressForm;
