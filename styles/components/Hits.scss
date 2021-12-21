@@ -18,22 +18,22 @@ $card_height: calc($img_height + 180px);
       & a {
         text-decoration: none;
         color: #222;
-        & p {
-          margin-top: 30px;
-        }
-        & p:last-child {
-          color: $main_color;
-          position: absolute;
-          bottom: 60px;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-        & img {
-          width: $img_width;
-          max-width: $img_width;
-          min-width: $img_width;
-          height: $img_height;
-        }
+      }
+      & p {
+        margin-top: 30px;
+      }
+      & p:last-child {
+        color: $main_color;
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      & img {
+        width: $img_width;
+        max-width: $img_width;
+        min-width: $img_width;
+        height: $img_height;
       }
       & button {
         width: calc($img_width - 40px);

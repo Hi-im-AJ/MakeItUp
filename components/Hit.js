@@ -1,5 +1,5 @@
-import React, { Fragment, useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import Link from "next/link";
 import NoImage from "../assets/noImage.png";
 import CartContext from "../context/cart/CartContext";
 import commerce from "../lib/commerce";
@@ -12,16 +12,18 @@ const Hit = ({ hit }) => {
   const addToCart = () => commerce.cart.add(objectID).then(({ cart }) => setCart(cart));
 
   return (
-    <Fragment>
-      <Link to={"product/" + objectID} id={objectID} key={objectID}>
-        {image ? <img src={image.url} alt={name} /> : <img src={NoImage} alt={name} />}
-        <p>{name}</p>
-        <p>{price.formatted_with_code}</p>
+    <div key={objectID} id={objectID}>
+      <Link href={"product/" + objectID}>
+        <>
+          {image ? <img src={image.url} alt={name} /> : <img src={NoImage} alt={name} />}
+          <p>{name}</p>
+          <p>{price.formatted_with_code}</p>
+        </>
       </Link>
       <button className="btn" onClick={addToCart}>
         Add To Cart
       </button>
-    </Fragment>
+    </div>
   );
 };
 

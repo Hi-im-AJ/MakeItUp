@@ -2,18 +2,22 @@
   "name": "next",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"next dev\" \"sass --watch styles/main.scss:styles/main.css\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@chec/commerce.js": "^2.8.0",
     "next": "12.0.7",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-instantsearch-dom": "^6.18.0"
   },
   "devDependencies": {
+    "concurrently": "^6.5.1",
     "eslint": "8.5.0",
-    "eslint-config-next": "12.0.7"
+    "eslint-config-next": "12.0.7",
+    "sass": "^1.45.1"
   }
 }

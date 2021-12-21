@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { InstantSearch, SearchBox, HitsPerPage, RefinementList, SortBy } from "react-instantsearch-dom";
 import searchClient from "../lib/algolia";
 import SearchContext from "../context/search/SearchContext";
 import InfiniteHits from "./InfiniteHits";
 
-const ProductList = () => {
+export default () => {
   const { searchInput } = useContext(SearchContext);
 
   return (
@@ -56,5 +56,3 @@ const ProductList = () => {
     </InstantSearch>
   );
 };
-
-export default ProductList;

@@ -1,32 +1,31 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import Search from "./Search";
 import Logo from "../assets/logo.png";
 import Cart from "../assets/cart.svg";
 import CartContext from "../context/cart/CartContext";
 
-const Navbar = () => {
+export default () => {
   const { total_items } = useContext(CartContext);
   return (
     <nav>
       <div>
-        <Link to="/">
-          <img id="logo" src={Logo} alt="logo" />
+        <Link href="/">
+          <Image src={Logo} id="logo" alt="logo.png" />
         </Link>
       </div>
       <Search />
       <div id="linksContainer">
-        <Link to="/about">ABOUT US</Link>
-        <Link to="/contact">CONTACT</Link>
-        <Link id="cart" to="/cart">
-          <img src={Cart} alt="cart" />
+        <Link href="/about">ABOUT US</Link>
+        <Link href="/contact">CONTACT</Link>
+        <a id="cart" href="/cart">
+          <Image src={Cart} alt="cart" />
           <span className="cartnumbernav">
             <p>{total_items}</p>
           </span>
-        </Link>
+        </a>
       </div>
     </nav>
   );
 };
-
-export default Navbar;
