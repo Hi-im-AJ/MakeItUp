@@ -1,7 +1,7 @@
 import Head from "next/head";
 import ProductList from "../components/ProductList";
 
-export default function Home() {
+export default function () {
   return (
     <>
       <Head>

@@ -4,7 +4,7 @@ import Search from "./Search";
 import CartContext from "../context/cart/CartContext";
 import commerce from "../lib/commerce";
 
-export default () => {
+export default function () {
   const { total_unique_items, setCart } = useContext(CartContext);
   useEffect(() => {
     commerce.cart
@@ -40,4 +40,4 @@ export default () => {
       </div>
     </nav>
   );
-};
+}

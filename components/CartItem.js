@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import CartContext from "../context/cart/CartContext";
 import commerce from "../lib/commerce";
 
-const CartItem = ({ img, name, quantity, line_total, id }) => {
+export default function ({ img, name, quantity, line_total, id }) {
   const { setCart } = useContext(CartContext);
 
   const incrementByOne = () =>
@@ -33,6 +33,4 @@ const CartItem = ({ img, name, quantity, line_total, id }) => {
       <p>{line_total}</p>
     </>
   );
-};
-
-export default CartItem;
+}

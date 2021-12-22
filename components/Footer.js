@@ -1,6 +1,6 @@
 import React from "react";
 
-const Footer = () => {
+export default function () {
   return (
     <footer
       style={{
@@ -10,6 +10,4 @@ const Footer = () => {
       }}
     ></footer>
   );
-};
-
-export default Footer;
+}

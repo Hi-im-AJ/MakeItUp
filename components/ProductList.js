@@ -4,7 +4,7 @@ import searchClient from "../lib/algolia";
 import SearchContext from "../context/search/SearchContext";
 import InfiniteHits from "./InfiniteHits";
 
-export default () => {
+export default function () {
   const { searchInput } = useContext(SearchContext);
 
   return (
@@ -55,4 +55,4 @@ export default () => {
       </div>
     </InstantSearch>
   );
-};
+}

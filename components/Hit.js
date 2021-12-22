@@ -3,7 +3,7 @@ import Link from "next/link";
 import CartContext from "../context/cart/CartContext";
 import commerce from "../lib/commerce";
 
-const Hit = ({ hit }) => {
+export default function ({ hit }) {
   const { name, image, price, objectID } = hit;
 
   const { setCart } = useContext(CartContext);
@@ -24,6 +24,4 @@ const Hit = ({ hit }) => {
       </button>
     </div>
   );
-};
-
-export default Hit;
+}

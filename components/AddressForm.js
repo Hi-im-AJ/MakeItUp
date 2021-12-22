@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import CartContext from "../context/cart/CartContext";
 
-export default ({ checkoutToken }) => {
+export default function ({ checkoutToken }) {
   const { getShippingOptions, shippingOptions } = useContext(CartContext);
   useEffect(() => {
     getShippingOptions(checkoutToken);
@@ -21,7 +21,6 @@ export default ({ checkoutToken }) => {
   const handleChange = (event) => setFormData({ ...formData, [event.target.name]: event.target.value });
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
   };
 
   return (
@@ -76,4 +75,4 @@ export default ({ checkoutToken }) => {
       <input type="submit" value="Submit" />
     </form>
   );
-};
+}

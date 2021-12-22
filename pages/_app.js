@@ -3,7 +3,7 @@ import SearchState from "../context/search/SearchState";
 import CartState from "../context/cart/CartState";
 import Navbar from "../components/Navbar";
 
-function MyApp({ Component, pageProps }) {
+export default function ({ Component, pageProps }) {
   return (
     <>
       <SearchState>
@@ -15,5 +15,3 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
-
-export default MyApp;

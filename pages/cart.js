@@ -3,7 +3,7 @@ import Link from "next/link";
 import CartItem from "../components/CartItem";
 import CartContext from "../context/cart/CartContext";
 
-export default () => {
+export default function () {
   const { line_items, subtotal, total_items } = useContext(CartContext);
 
   if (total_items === 0) return <h4 align="center">Your cart is empty</h4>;
@@ -52,4 +52,4 @@ export default () => {
       </div>
     </div>
   );
-};
+}

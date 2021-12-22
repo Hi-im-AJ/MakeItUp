@@ -3,7 +3,7 @@ import AddressForm from "/components/AddressForm";
 import commerce from "/lib/commerce";
 import CartContext from "/context/cart/CartContext";
 
-export default () => {
+export default function () {
   const { id: cartId } = useContext(CartContext);
   const [checkoutToken, setcheckoutToken] = useState(null);
 
@@ -23,4 +23,4 @@ export default () => {
       {checkoutToken && <AddressForm checkoutToken={checkoutToken} />}
     </div>
   );
-};
+}
