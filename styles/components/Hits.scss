@@ -1,0 +1,47 @@
+$img_width: 225px;
+$img_height: 225px;
+$card_height: calc($img_height + 180px);
+
+.ais-InfiniteHits {
+  & ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, $img_width);
+    gap: 40px;
+    & li {
+      text-align: center;
+      width: $img_width;
+      height: $card_height;
+      position: relative;
+      & a {
+        text-decoration: none;
+        color: #222;
+      }
+      & p {
+        margin-top: 30px;
+      }
+      & p:last-child {
+        color: $main_color;
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      & img {
+        width: $img_width;
+        max-width: $img_width;
+        min-width: $img_width;
+        height: $img_height;
+      }
+      & button {
+        width: calc($img_width - 40px);
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
