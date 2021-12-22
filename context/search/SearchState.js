@@ -3,16 +3,14 @@ import SearchContext from "./SearchContext";
 import SearchReducer from "./SearchReducer";
 import { SET_SEARCH_INPUT } from "../types";
 
-const SearchState = (props) => {
+export default (props) => {
   const initialState = {
     searchInput: "",
   };
   const [state, dispatch] = useReducer(SearchReducer, initialState);
 
-  const setSearchInput = async (input) => {
-    try {
-      dispatch({ type: SET_SEARCH_INPUT, payload: input });
-    } catch (error) {}
+  const setSearchInput = (input) => {
+    dispatch({ type: SET_SEARCH_INPUT, payload: input });
   };
 
   return (
@@ -26,5 +24,3 @@ const SearchState = (props) => {
     </SearchContext.Provider>
   );
 };
-
-export default SearchState;

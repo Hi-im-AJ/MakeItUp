@@ -4,7 +4,7 @@ import CartReducer from "./CartReducer";
 import { SET_CART, GET_SHIPPING_OPTIONS } from "../types";
 import commerce from "../../lib/commerce";
 
-const CartState = (props) => {
+export default (props) => {
   const initialState = {
     total_items: 0,
     total_unique_items: 0,
@@ -48,5 +48,3 @@ const CartState = (props) => {
     </CartContext.Provider>
   );
 };
-
-export default CartState;

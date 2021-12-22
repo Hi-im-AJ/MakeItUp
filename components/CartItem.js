@@ -20,7 +20,7 @@ const CartItem = ({ img, name, quantity, line_total, id }) => {
       .then(({ cart }) => setCart(cart));
 
   return (
-    <div className="CartItem" key={id}>
+    <>
       <div className="desc">
         <img src={img.url} alt={name} />
         <p id="cartItemName">{name}</p>
@@ -31,7 +31,7 @@ const CartItem = ({ img, name, quantity, line_total, id }) => {
         <button onClick={incrementByOne}>+</button>
       </div>
       <p>{line_total}</p>
-    </div>
+    </>
   );
 };
 

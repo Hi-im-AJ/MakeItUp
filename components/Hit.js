@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import Link from "next/link";
-import NoImage from "../assets/noImage.png";
 import CartContext from "../context/cart/CartContext";
 import commerce from "../lib/commerce";
 
@@ -15,7 +14,7 @@ const Hit = ({ hit }) => {
     <div key={objectID} id={objectID}>
       <Link href={"product/" + objectID}>
         <>
-          {image ? <img src={image.url} alt={name} /> : <img src={NoImage} alt={name} />}
+          {image ? <img src={image.url} alt={name} /> : <img src="/assets/noImage.png" alt={name} />}
           <p>{name}</p>
           <p>{price.formatted_with_code}</p>
         </>

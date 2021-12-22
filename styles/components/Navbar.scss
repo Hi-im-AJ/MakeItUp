@@ -7,7 +7,7 @@ nav {
   justify-content: space-between;
   width: calc(100vw - ($frame-width * 2));
   & #logo {
-    height: 65px;
+    width: 20rem;
     padding: 15px;
     cursor: pointer;
   }
@@ -19,7 +19,7 @@ nav {
       transform: translateY(-50%);
       width: calc(100vw - ($frame-width * 2) - 50rem);
       border-radius: 20px;
-      height: 40px;
+      height: 1.25rem;
       border-color: #adadad;
       padding: 10px 20px;
       border-width: 3px;
@@ -51,6 +51,7 @@ nav {
     & #cart {
       position: relative;
       top: -0.3rem;
+      cursor: pointer;
       & img {
         filter: invert(40%) sepia(8%) saturate(1612%) hue-rotate(323deg) brightness(103%) contrast(83%);
         height: 2.5rem;

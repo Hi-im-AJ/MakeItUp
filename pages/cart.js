@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "next/link";
+import Link from "next/link";
 import CartItem from "../components/CartItem";
 import CartContext from "../context/cart/CartContext";
 
@@ -25,10 +25,12 @@ export default () => {
             image,
           } = item;
           return (
-            <>
-              <CartItem img={image} name={name} id={id} quantity={quantity} line_total={formatted_with_code} />
+            <div key={id}>
+              <div>
+                <CartItem id={id} img={image} name={name} quantity={quantity} line_total={formatted_with_code} />
+              </div>
               <hr />
-            </>
+            </div>
           );
         })}
       </div>
@@ -44,7 +46,7 @@ export default () => {
         <p>
           Total: <strong>{subtotal.formatted_with_symbol} </strong>
         </p>
-        <Link id="checkoutBtn" to="/checkout">
+        <Link id="checkoutBtn" href="/checkout">
           <button>Checkout</button>
         </Link>
       </div>

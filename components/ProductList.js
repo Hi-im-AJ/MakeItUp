@@ -16,7 +16,7 @@ export default () => {
           transformItems={(items) =>
             items.map((item) => ({
               ...item,
-              count: `(${item.count})`,
+              count: item.count,
             }))
           }
         />

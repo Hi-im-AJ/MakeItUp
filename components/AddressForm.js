@@ -1,15 +1,12 @@
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import CartContext from "../context/cart/CartContext";
 
-const AddressForm = ({ checkoutToken }) => {
+export default ({ checkoutToken }) => {
   const { getShippingOptions, shippingOptions } = useContext(CartContext);
   useEffect(() => {
     getShippingOptions(checkoutToken);
-    // eslint-disable-next-line
   }, []);
 
-  //First name, Last name, Country, Address,
-  // Email, City, zip code, telephone
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -24,28 +21,29 @@ const AddressForm = ({ checkoutToken }) => {
   const handleChange = (event) => setFormData({ ...formData, [event.target.name]: event.target.value });
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(formData);
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
         First Name:
-        <input type="text" name="firstName" onChange={handleChange} />
+        <input type="text" name="firstName" onChange={handleChange} required />
       </label>
 
       <label>
         Last Name:
-        <input type="text" name="lastName" onChange={handleChange} />
+        <input type="text" name="lastName" onChange={handleChange} required />
       </label>
 
       <label>
         Address:
-        <input type="text" name="address" onChange={handleChange} />
+        <input type="text" name="address" onChange={handleChange} required />
       </label>
 
       <label>
         Email:
-        <input type="text" name="email" onChange={handleChange} />
+        <input type="text" name="email" onChange={handleChange} required />
       </label>
 
       <select onChange={handleChange} name="countryCode">
@@ -62,22 +60,20 @@ const AddressForm = ({ checkoutToken }) => {
 
       <label>
         City:
-        <input type="text" name="city" onChange={handleChange} />
+        <input type="text" name="city" onChange={handleChange} required />
       </label>
 
       <label>
         Zip Code:
-        <input type="number" name="zipCode" onChange={handleChange} />
+        <input type="number" name="zipCode" onChange={handleChange} required />
       </label>
 
       <label>
         Telephone:
-        <input type="number" name="telephone" onChange={handleChange} />
+        <input type="number" name="telephone" onChange={handleChange} required />
       </label>
 
       <input type="submit" value="Submit" />
     </form>
   );
 };
-
-export default AddressForm;
