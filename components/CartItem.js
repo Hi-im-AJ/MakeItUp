@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
+import Image from "next/image";
 import CartContext from "../context/cart/CartContext";
 import commerce from "../lib/commerce";
 
@@ -22,7 +23,7 @@ export default function ({ img, name, quantity, line_total, id }) {
   return (
     <>
       <div className="desc">
-        <img src={img.url} alt={name} />
+        <Image loader={() => img.url} alt={name} src={img.filename} width={200} height={200} />
         <p id="cartItemName">{name}</p>
       </div>
       <div className="quantity">
