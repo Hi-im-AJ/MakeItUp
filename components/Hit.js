@@ -12,13 +12,20 @@ export default function ({ hit }) {
 
   const addToCart = () => commerce.cart.add(objectID).then(({ cart }) => setCart(cart));
 
+  const href = "product/" + objectID;
   return (
     <div key={objectID} id={objectID}>
-      <Link href={"product/" + objectID} >
+      <Link href={href} >
           {image ? <img src={image.url} alt={name} /> : <img src={NoImage} alt={name} />}
       </Link>
-      <p>{name}</p>
-      <p>{price.formatted_with_code}</p>
+      <Link href={href}>
+        <p>{name}</p>
+      </Link>
+
+      <Link href={href}>
+        <p>{price.formatted_with_code}</p>
+      </Link>
+
       <button className="btn" onClick={addToCart}>
         Add To Cart
       </button>
