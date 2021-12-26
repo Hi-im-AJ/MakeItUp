@@ -1,4 +1,4 @@
-import {useContext} from "react";
+import { useContext } from "react";
 import Link from "next/link";
 import CartContext from "../context/cart/CartContext";
 import commerce from "../lib/commerce";
@@ -14,16 +14,9 @@ export default function ({ hit }) {
   const href = "product/" + objectID;
   return (
     <div key={objectID} id={objectID}>
-      <Link href={href} >
-          {image ? <img src={image.url} alt={name} /> : <img src={NoImage} alt={name} />}
-      </Link>
-      <Link href={href}>
-        <p>{name}</p>
-      </Link>
-
-      <Link href={href}>
-        <p>{price.formatted_with_code}</p>
-      </Link>
+      <Link href={href}>{image ? <img src={image.url} alt={name} /> : <img src={NoImage} alt={name} />}</Link>
+      <p>{name}</p>
+      <p>{price.formatted_with_code}</p>
 
       <button className="btn" onClick={addToCart}>
         Add To Cart

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { connectInfiniteHits } from "react-instantsearch-dom";
 import Hit from "./Hit";
+import { Grid, List, ListItem } from "@mui/material";
 
 class InfiniteHits extends Component {
   sentinel = null;
@@ -31,16 +32,16 @@ class InfiniteHits extends Component {
     const { hits } = this.props;
 
     return (
-      <div className="ais-InfiniteHits">
-        <ul className="ais-InfiniteHits-list">
+      <Grid item>
+        <List className="ais-InfiniteHits-list">
           {hits.map((hit) => (
-            <li key={hit.objectID} className="ais-InfiniteHits-item">
+            <ListItem key={hit.objectID} className="ais-InfiniteHits-item">
               <Hit hit={hit} />
-            </li>
+            </ListItem>
           ))}
-          <li className="ais-InfiniteHits-sentinel" ref={(c) => (this.sentinel = c)} />
-        </ul>
-      </div>
+          <ListItem className="ais-InfiniteHits-sentinel" ref={(c) => (this.sentinel = c)} />
+        </List>
+      </Grid>
     );
   }
 }
