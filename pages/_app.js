@@ -1,6 +1,7 @@
 import "../styles/main.css";
 import SearchState from "../context/search/SearchState";
 import CartState from "../context/cart/CartState";
+import UserState from "../context/user/UserState"
 import Navbar from "../components/Navbar";
 import {useRouter} from "next/router";
 import {DefaultSeo} from "next-seo";
@@ -19,12 +20,14 @@ export default function ({ Component, pageProps }) {
       <DefaultSeo canonical={canonicalUrl}>
         <link rel="canonical" href={canonicalUrl} />
       </DefaultSeo>
-      <SearchState>
-        <CartState>
-          <Navbar />
-          <Component {...pageProps} />
-        </CartState>
-      </SearchState>
+      <UserState>
+        <SearchState>
+          <CartState>
+            <Navbar />
+            <Component {...pageProps} />
+          </CartState>
+        </SearchState>
+      </UserState>
     </>
   );
 }

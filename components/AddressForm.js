@@ -1,11 +1,13 @@
 import { useEffect, useState, useContext } from "react";
 import CartContext from "../context/cart/CartContext";
+import UserContext from "../context/user/UserContext";
 
 export default function ({ checkoutToken }) {
   const { getShippingOptions, shippingOptions } = useContext(CartContext);
   useEffect(() => {
     getShippingOptions(checkoutToken);
   }, []);
+  const {setUser} = useContext(UserContext);
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -21,6 +23,7 @@ export default function ({ checkoutToken }) {
   const handleChange = (event) => setFormData({ ...formData, [event.target.name]: event.target.value });
   const handleSubmit = (event) => {
     event.preventDefault();
+    setUser(formData)
   };
 
   return (
