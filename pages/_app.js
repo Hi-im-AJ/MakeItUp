@@ -10,7 +10,7 @@ export default function ({ Component, pageProps }) {
   const router = useRouter();
 
   //Fordi Anders elsker ternaries
-  const canonicalUrl = process.env.NODE_ENV === "production" ? (`https://make-it-up-hi-im-aj.vercel.app`
+  const canonicalUrl = process.env.NEXT_PUBLIC_ENV === "production" ? (`https://make-it-up-hi-im-aj.vercel.app`
                                               + (router.asPath === "/" ? "": router.asPath))
                                                 .split("?")[0] : "localhost";
 
