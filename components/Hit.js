@@ -17,7 +17,7 @@ export default function ({ hit }) {
   return (
     <Card key={objectID}>
       <Link href={href}>
-        <CardMedia sx={{ height: "15rem" }} title={name} {...url} />
+        <CardMedia sx={{ height: "15rem", cursor: "pointer" }} title={name} {...url} />
       </Link>
       <CardContent>
         <Typography>{name}</Typography>
