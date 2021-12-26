@@ -24,7 +24,7 @@ export default function () {
             }))
           }
         />
-        <Grid item>
+        <Grid item xs>
           <div style={{ display: "none" }}>
             <SearchBox
               defaultRefinement={searchInput}

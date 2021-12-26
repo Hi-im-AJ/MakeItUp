@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Link from "next/link";
 import CartContext from "../context/cart/CartContext";
 import commerce from "../lib/commerce";
-import NoImage from "../public/assets/noImage.png";
+import { Card, CardMedia, CardContent, CardActions, Typography, Button } from "@mui/material";
 
 export default function ({ hit }) {
   const { name, image, price, objectID } = hit;
@@ -12,15 +12,20 @@ export default function ({ hit }) {
   const addToCart = () => commerce.cart.add(objectID).then(({ cart }) => setCart(cart));
 
   const href = "product/" + objectID;
-  return (
-    <div key={objectID} id={objectID}>
-      <Link href={href}>{image ? <img src={image.url} alt={name} /> : <img src={NoImage} alt={name} />}</Link>
-      <p>{name}</p>
-      <p>{price.formatted_with_code}</p>
+  const url = image ? { image: image.url } : {};
 
-      <button className="btn" onClick={addToCart}>
-        Add To Cart
-      </button>
-    </div>
+  return (
+    <Card key={objectID}>
+      <Link href={href}>
+        <CardMedia sx={{ height: "15rem" }} title={name} {...url} />
+      </Link>
+      <CardContent>
+        <Typography>{name}</Typography>
+        <Typography>{price.formatted_with_code}</Typography>
+        <CardActions>
+          <Button onClick={addToCart}>Add To Cart</Button>
+        </CardActions>
+      </CardContent>
+    </Card>
   );
 }

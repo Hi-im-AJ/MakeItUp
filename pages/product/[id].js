@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import commerce from "../../lib/commerce";
-import NoImage from "../../public/assets/noImage.png";
 import { stripTags } from "../../lib/utils";
 import CartContext from "../../context/cart/CartContext";
 import { Container } from "@mui/material";
@@ -19,9 +18,11 @@ export default ({ product }) => {
   const { setCart } = useContext(CartContext);
   const addToCart = () => commerce.cart.add(product.id).then(({ cart }) => setCart(cart));
 
+  const image = product.image ? product.image.url : null;
+
   return product ? (
     <Container maxWidth="xl">
-      {product.image ? <img src={product.image.url} alt={product.name} /> : <img src={NoImage} alt="Not found" />}
+      <img src={image} alt="Not found" />
       <h1>{product.name}</h1>
       <p>{stripTags(product.description)}</p>
       <button className="btn" onClick={addToCart}>

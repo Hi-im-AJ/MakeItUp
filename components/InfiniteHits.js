@@ -32,15 +32,15 @@ class InfiniteHits extends Component {
     const { hits } = this.props;
 
     return (
-      <Grid item>
-        <List className="ais-InfiniteHits-list">
+      <Grid item xs>
+        <Grid container spacing={5}>
           {hits.map((hit) => (
-            <ListItem key={hit.objectID} className="ais-InfiniteHits-item">
+            <Grid item key={hit.objectID} xs={12} sm={6} md={4} lg={3}>
               <Hit hit={hit} />
-            </ListItem>
+            </Grid>
           ))}
           <ListItem className="ais-InfiniteHits-sentinel" ref={(c) => (this.sentinel = c)} />
-        </List>
+        </Grid>
       </Grid>
     );
   }
