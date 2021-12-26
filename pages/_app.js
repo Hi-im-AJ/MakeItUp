@@ -6,13 +6,13 @@ import {useRouter} from "next/router";
 import Head from "next/Head"
 
 export default function ({ Component, pageProps }) {
+
   const router = useRouter();
 
-
   //Fordi Anders elsker ternaries
-  const canonicalUrl = process.env.production ? (`https://make-it-up-hi-im-aj.vercel.app`
+  const canonicalUrl = process.env.NODE_ENV === "production" ? (`https://make-it-up-hi-im-aj.vercel.app`
                                               + (router.asPath === "/" ? "": router.asPath))
-                                                .split("?")[0] : "";
+                                                .split("?")[0] : "localhost";
 
   return (
     <>

@@ -1,6 +1,5 @@
-import {Fragment, useContext} from "react";
+import {useContext} from "react";
 import Link from "next/link";
-import Image from 'next/image'
 import CartContext from "../context/cart/CartContext";
 import commerce from "../lib/commerce";
 import NoImage from "../public/assets/noImage.png";
