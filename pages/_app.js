@@ -3,7 +3,7 @@ import SearchState from "../context/search/SearchState";
 import CartState from "../context/cart/CartState";
 import Navbar from "../components/Navbar";
 import {useRouter} from "next/router";
-import Head from "next/Head"
+import {DefaultSeo} from "next-seo";
 
 export default function ({ Component, pageProps }) {
 
@@ -16,9 +16,9 @@ export default function ({ Component, pageProps }) {
 
   return (
     <>
-      <Head>
+      <DefaultSeo canonical={canonicalUrl}>
         <link rel="canonical" href={canonicalUrl} />
-      </Head>
+      </DefaultSeo>
       <SearchState>
         <CartState>
           <Navbar />
