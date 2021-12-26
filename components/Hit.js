@@ -20,8 +20,10 @@ export default function ({ hit }) {
         <CardMedia sx={{ height: "15rem", cursor: "pointer" }} title={name} {...url} />
       </Link>
       <CardContent>
-        <Typography>{name}</Typography>
-        <Typography>{price.formatted_with_code}</Typography>
+        <Typography variant="h6">{name}</Typography>
+        <Typography variant="p" color="primary">
+          {price.formatted_with_code}
+        </Typography>
         <CardActions>
           <Button onClick={addToCart}>Add To Cart</Button>
         </CardActions>
