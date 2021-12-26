@@ -1,3 +1,4 @@
+import { Container } from "@mui/material";
 export default function () {
-  return <div className="frame">This is about page.</div>;
+  return <Container maxWidth="xl">This is about page.</Container>;
 }

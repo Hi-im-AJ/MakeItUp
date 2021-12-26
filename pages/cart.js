@@ -2,13 +2,14 @@ import { useContext } from "react";
 import Link from "next/link";
 import CartItem from "../components/CartItem";
 import CartContext from "../context/cart/CartContext";
+import { Container } from "@mui/material";
 
 export default function () {
   const { line_items, subtotal, total_items } = useContext(CartContext);
 
   if (total_items === 0) return <h4 align="center">Your cart is empty</h4>;
   return (
-    <div className="frame" id="cartPage">
+    <Container maxWidth="xl">
       <h2>Cart</h2>
       <div id="cartHeader">
         <h6>Products</h6>
@@ -50,6 +51,6 @@ export default function () {
           <button>Checkout</button>
         </Link>
       </div>
-    </div>
+    </Container>
   );
 }

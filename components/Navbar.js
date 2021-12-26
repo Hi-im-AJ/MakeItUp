@@ -23,7 +23,7 @@ export default function () {
   }, [total_unique_items]);
 
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" sx={{ mb: 6 }}>
       <Grid container direction="row" justifyContent="space-between" alignItems="center">
         <Grid
           item
