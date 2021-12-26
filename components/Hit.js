@@ -12,13 +12,15 @@ export default function ({ hit }) {
   const addToCart = () => commerce.cart.add(objectID).then(({ cart }) => setCart(cart));
 
   const href = "product/" + objectID;
-  const url = image ? { image: image.url } : {};
+  const media = image ? (
+    <Link href={href}>
+      <CardMedia sx={{ height: "15rem", cursor: "pointer" }} title={name} image={image.url} />
+    </Link>
+  ) : null;
 
   return (
     <Card key={objectID}>
-      <Link href={href}>
-        <CardMedia sx={{ height: "15rem", cursor: "pointer" }} title={name} {...url} />
-      </Link>
+      {media}
       <CardContent>
         <Typography variant="h6">{name}</Typography>
         <Typography variant="p" color="primary">

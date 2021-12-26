@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { connectInfiniteHits } from "react-instantsearch-dom";
 import Hit from "./Hit";
-import { Grid, List, ListItem } from "@mui/material";
+import { Grid, ListItem } from "@mui/material";
 
 class InfiniteHits extends Component {
   sentinel = null;

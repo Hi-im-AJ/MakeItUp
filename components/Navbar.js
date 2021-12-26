@@ -14,17 +14,14 @@ export default function () {
     commerce.cart
       .retrieve()
       .then((cart) => {
-        console.log(cart);
         setCart(cart);
       })
-      .catch((err) => {
-        console.error(err);
-      });
+      .catch((err) => console.error(err));
   }, [total_unique_items]);
 
   return (
     <Container maxWidth="xl" sx={{ mb: 6 }}>
-      <Grid container direction="row" justifyContent="space-between" alignItems="center">
+      <Grid container justifyContent="space-between" alignItems="center">
         <Grid
           item
           xs={6}
@@ -37,7 +34,7 @@ export default function () {
           </Link>
         </Grid>
         <Grid item xs>
-          <Grid container justifyContent="right" spacing={2} alignItems="center">
+          <Grid container spacing={2} justifyContent="flex-end" alignItems="center">
             <Grid item>
               <TextField
                 variant="standard"
