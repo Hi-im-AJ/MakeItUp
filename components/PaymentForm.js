@@ -71,8 +71,11 @@ const PaymentForm = ({checkoutToken}) => {
 
   return (
     <>
+      <br/>
       <Divider/>
-      <Typography variant="h6" gutterBottom style={{margin: '20px 0'}}>Payment method</Typography>
+      <Typography variant="h4" sx={{ mb: 4 }} color="primary">
+        Payment Method
+      </Typography>
       <Elements stripe={stripePromise}>
         <ElementsConsumer>{({elements, stripe}) => (
           <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>

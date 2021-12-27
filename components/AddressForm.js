@@ -9,7 +9,6 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  Button,
   Typography,
 } from "@mui/material";
 
@@ -31,9 +30,12 @@ export default function ({ checkoutToken }) {
     telephone: "",
   });
 
-  const handleChange = (event) => setFormData({ ...formData, [event.target.name]: event.target.value });
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value })
+    submit()
+  };
+
+  const submit = () => {
     const { firstName, lastName, address, email, city, countryCode, zipCode, telephone } = formData;
     if (firstName && lastName && address && email && city && countryCode && zipCode) {
       setUser(formData)
@@ -139,11 +141,6 @@ export default function ({ checkoutToken }) {
             onChange={handleChange}
           />
         </Grid>
-      </Grid>
-      <Grid item xs={12} sx={{ mt: 4, display: "flex", justifyContent: "center" }}>
-        <Button variant="contained" onClick={handleSubmit} size="large">
-          Confirm Address
-        </Button>
       </Grid>
     </FormGroup>
   );
