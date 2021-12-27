@@ -13,7 +13,6 @@ export default function ({ checkoutToken }) {
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
-    console.log(formData);
   };
 
   return (
@@ -21,6 +20,7 @@ export default function ({ checkoutToken }) {
       <Typography variant="h4" sx={{ mb: 4 }} color="primary">
         Delivery Address
       </Typography>
+      <br />
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <TextField

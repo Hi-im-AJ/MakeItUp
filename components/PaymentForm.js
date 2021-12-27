@@ -8,15 +8,17 @@ import commerce from "../lib/commerce";
 
 const PaymentForm = ({checkoutToken}) => {
 
-  const {subtotal, line_items, shippingOptions} = useContext(CartContext)
+  const {subtotal, line_items, shippingOptions, setCart} = useContext(CartContext)
   const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY)
   const [order, setOrder] = useState({})
   const {firstName, lastName, address, email, city, countryCode, zipCode} = useContext(UserContext)
 
+  const refreshCart = () => Commerce.cart.refresh().then(({ cart }) => setCart(cart));
+
   const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
     try {
       commerce.checkout.capture(checkoutTokenId, newOrder).then((order) => setOrder(order))
-
+      refreshCart()
     } catch (error) {
       alert(error.data.error.message);
     }
@@ -73,9 +75,11 @@ const PaymentForm = ({checkoutToken}) => {
     <>
       <br/>
       <Divider/>
+      <br/>
       <Typography variant="h4" sx={{ mb: 4 }} color="primary">
         Payment Method
       </Typography>
+      <br/>
       <Elements stripe={stripePromise}>
         <ElementsConsumer>{({elements, stripe}) => (
           <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
