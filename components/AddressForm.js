@@ -32,10 +32,10 @@ export default function ({ checkoutToken }) {
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value })
-    submit()
+    submitUserInfo()
   };
 
-  const submit = () => {
+  const submitUserInfo = () => {
     const { firstName, lastName, address, email, city, countryCode, zipCode, telephone } = formData;
     if (firstName && lastName && address && email && city && countryCode && zipCode) {
       setUser(formData)
@@ -50,6 +50,7 @@ export default function ({ checkoutToken }) {
       <Typography variant="h4" sx={{ mb: 4 }} color="primary">
         Delivery Address
       </Typography>
+      <br/>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <TextField
