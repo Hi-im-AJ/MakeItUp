@@ -1,11 +1,11 @@
-import { SET_USER } from "../types";
+import { SET_FORM } from "../types";
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case SET_USER:
+    case SET_FORM:
       return {
         ...state,
-        ...action.payload,
+        formData: action.payload,
       };
     default:
       return { ...state };

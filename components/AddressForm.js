@@ -1,48 +1,19 @@
 import { useEffect, useState, useContext } from "react";
 import CartContext from "../context/cart/CartContext";
 import UserContext from "../context/user/UserContext";
-import {
-  FormGroup,
-  TextField,
-  Grid,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Typography,
-} from "@mui/material";
+import { FormGroup, TextField, Grid, FormControl, InputLabel, Select, MenuItem, Typography } from "@mui/material";
 
 export default function ({ checkoutToken }) {
   const { getShippingOptions, shippingOptions } = useContext(CartContext);
+  const { setFormData, formData } = useContext(UserContext);
+
   useEffect(() => {
     getShippingOptions(checkoutToken);
   }, []);
-  const {setUser} = useContext(UserContext);
-
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    address: "",
-    email: "",
-    city: "",
-    countryCode: "DK",
-    zipCode: "",
-    telephone: "",
-  });
 
   const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value })
-    submit()
-  };
-
-  const submit = () => {
-    const { firstName, lastName, address, email, city, countryCode, zipCode, telephone } = formData;
-    if (firstName && lastName && address && email && city && countryCode && zipCode) {
-      setUser(formData)
-      console.log("Success:", formData);
-    } else {
-      console.log("Error:", formData);
-    }
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+    console.log(formData);
   };
 
   return (
