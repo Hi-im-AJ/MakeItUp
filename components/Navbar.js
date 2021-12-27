@@ -2,22 +2,16 @@ import { useContext, useEffect } from "react";
 import Link from "next/link";
 import SearchContext from "../context/search/SearchContext";
 import CartContext from "../context/cart/CartContext";
-import commerce from "../lib/commerce";
 import { Container, Grid, Typography, Link as MuiLink, Badge, TextField, IconButton } from "@mui/material";
 import LocalMallRoundedIcon from "@mui/icons-material/LocalMallRounded";
 import Search from "@mui/icons-material/Search";
 
 export default function () {
-  const { total_unique_items, setCart } = useContext(CartContext);
+  const { total_unique_items , retrieveCart} = useContext(CartContext);
   const { setSearchInput } = useContext(SearchContext);
   useEffect(() => {
-    commerce.cart
-      .retrieve()
-      .then((cart) => {
-        setCart(cart);
-      })
-      .catch((err) => console.error(err));
-  }, [total_unique_items]);
+    retrieveCart()
+  }, []);
 
   return (
     <Container maxWidth="xl" sx={{ mb: 6 }}>

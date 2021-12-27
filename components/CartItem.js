@@ -1,27 +1,12 @@
-import { useContext } from "react";
 import Link from "next/link";
-import CartContext from "../context/cart/CartContext";
-import commerce from "../lib/commerce";
 import { Card, CardMedia, CardContent, CardActions, Typography, Grid, IconButton } from "@mui/material";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
+import {useContext} from "react";
+import CartContext from "../context/cart/CartContext";
 
 export default function ({ img, name, quantity, line_total, id, productId }) {
-  const { setCart } = useContext(CartContext);
-
-  const incrementByOne = () =>
-    commerce.cart
-      .update(id, {
-        quantity: quantity + 1,
-      })
-      .then(({ cart }) => setCart(cart));
-
-  const decrementByOne = () =>
-    commerce.cart
-      .update(id, {
-        quantity: quantity - 1,
-      })
-      .then(({ cart }) => setCart(cart));
+  const { incrementByOne, decrementByOne } = useContext(CartContext);
 
   return (
     <Card sx={{ width: "100%" }}>
@@ -50,10 +35,10 @@ export default function ({ img, name, quantity, line_total, id, productId }) {
         </Grid>
         <Grid item sx={{ width: "10rem" }}>
           <CardActions>
-            <IconButton size="large" color="secondary" onClick={decrementByOne}>
+            <IconButton size="large" color="secondary" onClick={() => decrementByOne(id, quantity)}>
               <RemoveRoundedIcon />
             </IconButton>
-            <IconButton size="large" color="primary" onClick={incrementByOne}>
+            <IconButton size="large" color="primary" onClick={() => incrementByOne(id, quantity)}>
               <AddRoundedIcon />
             </IconButton>
           </CardActions>

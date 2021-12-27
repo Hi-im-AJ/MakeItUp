@@ -7,7 +7,7 @@ import UserContext from "../context/user/UserContext";
 import commerce from "../lib/commerce";
 
 const PaymentForm = ({ checkoutToken }) => {
-  const { subtotal, line_items, shippingOptions, setCart } = useContext(CartContext);
+  const { subtotal, line_items, shippingOptions, refreshCart } = useContext(CartContext);
   const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
   const [order, setOrder] = useState({});
   const {
@@ -24,15 +24,11 @@ const PaymentForm = ({ checkoutToken }) => {
     }
   }, [firstName, lastName, address, email, city, countryCode, zipCode]);
 
-  const refreshCart = async () => {
-    const newCart = await commerce.cart.refresh();
-    setCart(newCart)
-  }
-
-  const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
+  const handleCaptureCheckout = (checkoutTokenId, newOrder) => {
     try {
-      commerce.checkout.capture(checkoutTokenId, newOrder).then((order) => setOrder(order));
-      await refreshCart();
+      commerce.checkout.capture(checkoutTokenId, newOrder)
+        .then((order) => setOrder(order));
+      refreshCart();
     } catch (error) {
       alert(error.data.error.message);
     }

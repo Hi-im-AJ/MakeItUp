@@ -5,7 +5,7 @@ import CartContext from "../context/cart/CartContext";
 import { Container, List, ListItem, Typography, Button } from "@mui/material";
 
 export default function () {
-  const { line_items, subtotal, total_items } = useContext(CartContext);
+  const { line_items, subtotal, total_items, id, clearCart } = useContext(CartContext);
 
   if (total_items === 0)
     return (
@@ -47,6 +47,9 @@ export default function () {
           <Link id="checkoutBtn" href="/checkout">
             <Button variant="contained">Checkout</Button>
           </Link>
+          <div id="clearCartButton">
+            <Button variant="outlined" onClick={() => clearCart(id)}>Clear Cart</Button>
+          </div>
         </ListItem>
       </List>
     </Container>
