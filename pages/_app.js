@@ -16,19 +16,18 @@ export default function ({ Component, pageProps }) {
       : "localhost";
 
   return (
-      <ThemeProvider theme={mainTheme}>
-        <DefaultSeo canonical={canonicalUrl}>
-          <link rel="canonical" href={canonicalUrl} />
-        </DefaultSeo>
-        <UserState>
-          <SearchState>
-            <CartState>
-              <Navbar />
-              <Component {...pageProps} />
-            </CartState>
-          </SearchState>
-        </UserState>
-      <ThemeProvider/>
-    </>
-  );
+    <ThemeProvider theme={mainTheme}>
+      <DefaultSeo canonical={canonicalUrl}>
+        <link rel="canonical" href={canonicalUrl} />
+      </DefaultSeo>
+      <UserState>
+        <SearchState>
+          <CartState>
+            <Navbar />
+            <Component {...pageProps} />
+          </CartState>
+        </SearchState>
+      </UserState>
+    </ThemeProvider>
+  )
 }

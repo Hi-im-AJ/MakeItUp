@@ -5,9 +5,9 @@ import { loadStripe } from '@stripe/stripe-js';
 import CartContext from "../context/cart/CartContext";
 import UserContext from "../context/user/UserContext";
 import commerce from "../lib/commerce";
-import { useRouter } from 'next/router'
+
 const PaymentForm = ({checkoutToken}) => {
-  const router = useRouter()
+
   const {subtotal, line_items, shippingOptions} = useContext(CartContext)
   const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY)
   const [order, setOrder] = useState({})
@@ -24,7 +24,6 @@ const PaymentForm = ({checkoutToken}) => {
 
   const handleSubmit = async (e, elements, stripe) => {
     e.preventDefault()
-
 
     if (!stripe || !elements) return;
 
