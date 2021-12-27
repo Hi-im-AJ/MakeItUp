@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { Typography, Button, Divider } from "@material-ui/core";
 import { Elements, CardElement, ElementsConsumer } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -14,8 +14,17 @@ const PaymentForm = ({ checkoutToken }) => {
     formData: { firstName, lastName, address, email, city, countryCode, zipCode },
   } = useContext(UserContext);
 
-  const refreshCart = async () => {
+  const [formFilled, setFormFilled] = useState(false)
 
+  useEffect(() => {
+    if (firstName && lastName && address && email && city && countryCode && zipCode) {
+      setFormFilled(true);
+    } else {
+      setFormFilled(false)
+    }
+  }, [firstName, lastName, address, email, city, countryCode, zipCode]);
+
+  const refreshCart = async () => {
     const newCart = await commerce.cart.refresh();
     setCart(newCart)
   }
@@ -92,7 +101,7 @@ const PaymentForm = ({ checkoutToken }) => {
               <CardElement />
               <br /> <br />
               <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <Button type="submit" variant="contained" disabled={!stripe} color="primary">
+                <Button type="submit" variant="contained" disabled={!stripe || !formFilled} color="primary">
                   Pay {subtotal.formatted_with_symbol}
                 </Button>
               </div>
