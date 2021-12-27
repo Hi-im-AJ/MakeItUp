@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from "react";
-import { Typography, Button, Divider } from "@material-ui/core";
+import {Typography, Button, Divider, CircularProgress} from "@material-ui/core";
 import { Elements, CardElement, ElementsConsumer } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CartContext from "../context/cart/CartContext";
@@ -9,7 +9,7 @@ import commerce from "../lib/commerce";
 const PaymentForm = ({ checkoutToken }) => {
   const { subtotal, line_items, shippingOptions, refreshCart } = useContext(CartContext);
   const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
-  const [order, setOrder] = useState({});
+  const [loading, setLoading] = useState(false);
   const {
     formData: { firstName, lastName, address, email, city, countryCode, zipCode },
   } = useContext(UserContext);
@@ -26,8 +26,10 @@ const PaymentForm = ({ checkoutToken }) => {
 
   const handleCaptureCheckout = (checkoutTokenId, newOrder) => {
     try {
+      setLoading(true)
       commerce.checkout.capture(checkoutTokenId, newOrder)
-        .then((order) => setOrder(order));
+        .then(() => setLoading(false)
+        );
       refreshCart();
     } catch (error) {
       alert(error.data.error.message);
@@ -83,6 +85,13 @@ const PaymentForm = ({ checkoutToken }) => {
 
   return (
     <>
+      {loading && <CircularProgress style={{
+        color: "",
+        position: "fixed",
+        top: "60%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+      }} />}
       <br />
       <Divider />
       <br />
@@ -105,7 +114,6 @@ const PaymentForm = ({ checkoutToken }) => {
           )}
         </ElementsConsumer>
       </Elements>
-      {order && <h2>{order.status_payment}</h2>}
     </>
   );
 };
