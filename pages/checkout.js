@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import AddressForm from "/components/AddressForm";
 import commerce from "/lib/commerce";
 import CartContext from "/context/cart/CartContext";
+import { Container, Paper } from "@mui/material";
 
 export default function () {
   const { id: cartId } = useContext(CartContext);
@@ -19,8 +20,8 @@ export default function () {
   }, [cartId]);
 
   return (
-    <div id="checkoutPage" className="frame">
-      {checkoutToken && <AddressForm checkoutToken={checkoutToken} />}
-    </div>
+    <Container maxWidth="lg">
+      <Paper sx={{ p: 5 }}>{checkoutToken && <AddressForm checkoutToken={checkoutToken} />}</Paper>
+    </Container>
   );
 }
