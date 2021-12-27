@@ -14,7 +14,7 @@ export default function ({ hit }) {
   const href = "product/" + objectID;
   const media = image ? (
     <Link href={href}>
-      <CardMedia sx={{ height: "15rem", cursor: "pointer" }} title={name} image={image.url} />
+      <CardMedia component="img" sx={{ height: "15rem", cursor: "pointer" }} title={name} image={image.url} />
     </Link>
   ) : null;
 

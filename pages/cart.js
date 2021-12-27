@@ -7,7 +7,12 @@ import { Container, List, ListItem, Typography, Button } from "@mui/material";
 export default function () {
   const { line_items, subtotal, total_items } = useContext(CartContext);
 
-  if (total_items === 0) return <h4 align="center">Your cart is empty</h4>;
+  if (total_items === 0)
+    return (
+      <Typography align="center" variant="h5">
+        Your cart is empty
+      </Typography>
+    );
   return (
     <Container maxWidth="lg">
       <List>
@@ -18,10 +23,18 @@ export default function () {
             line_total: { formatted_with_code },
             id,
             image,
+            product_id,
           } = item;
           return (
             <ListItem key={id}>
-              <CartItem id={id} img={image} name={name} quantity={quantity} line_total={formatted_with_code} />
+              <CartItem
+                id={id}
+                productId={product_id}
+                img={image}
+                name={name}
+                quantity={quantity}
+                line_total={formatted_with_code}
+              />
             </ListItem>
           );
         })}

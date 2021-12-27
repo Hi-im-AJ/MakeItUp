@@ -35,14 +35,14 @@ export default function () {
               }}
             />
           </div>
-          <SortBy
+          {/*<SortBy
             defaultRefinement="products"
             items={[
               { value: "product_price_asc", label: "By lower price first" },
               { value: "product_price_desc", label: "By higher price first" },
               { value: "products", label: "By relevance" },
             ]}
-          />
+          />*/}
 
           <InfiniteHits minHitsPerPage={2} />
 

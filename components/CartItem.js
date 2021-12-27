@@ -1,22 +1,12 @@
 import { useContext } from "react";
-import Image from "next/image";
+import Link from "next/link";
 import CartContext from "../context/cart/CartContext";
 import commerce from "../lib/commerce";
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Typography,
-  Button,
-  ButtonGroup,
-  Grid,
-  IconButton,
-} from "@mui/material";
+import { Card, CardMedia, CardContent, CardActions, Typography, Grid, IconButton } from "@mui/material";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 
-export default function ({ img, name, quantity, line_total, id }) {
+export default function ({ img, name, quantity, line_total, id, productId }) {
   const { setCart } = useContext(CartContext);
 
   const incrementByOne = () =>
@@ -37,7 +27,15 @@ export default function ({ img, name, quantity, line_total, id }) {
     <Card sx={{ width: "100%" }}>
       <Grid container justifyContent="space-between" alignItems="center">
         <Grid item sx={{ display: "flex" }}>
-          {img.url && <CardMedia image={img.url} title={img.filename} sx={{ width: "10rem", height: "10rem" }} />}
+          {img.url && (
+            <Link href={`/product/${productId}`}>
+              <CardMedia
+                image={img.url}
+                title={img.filename}
+                sx={{ width: "10rem", height: "10rem", cursor: "pointer" }}
+              />
+            </Link>
+          )}
           <CardContent sx={{ display: "grid" }}>
             <Typography sx={{ my: 1 }} variant="h6">
               {name}
