@@ -1,5 +1,16 @@
 import { useEffect, useState, useContext } from "react";
 import CartContext from "../context/cart/CartContext";
+import {
+  FormGroup,
+  TextField,
+  Grid,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Button,
+  Typography,
+} from "@mui/material";
 
 export default function ({ checkoutToken }) {
   const { getShippingOptions, shippingOptions } = useContext(CartContext);
@@ -21,58 +32,116 @@ export default function ({ checkoutToken }) {
   const handleChange = (event) => setFormData({ ...formData, [event.target.name]: event.target.value });
   const handleSubmit = (event) => {
     event.preventDefault();
+    const { firstName, lastName, address, email, city, countryCode, zipCode, telephone } = formData;
+    if (firstName && lastName && address && email && city && countryCode && zipCode) {
+      console.log("Success:", formData);
+    } else {
+      console.log("Error:", formData);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        First Name:
-        <input type="text" name="firstName" onChange={handleChange} required />
-      </label>
-
-      <label>
-        Last Name:
-        <input type="text" name="lastName" onChange={handleChange} required />
-      </label>
-
-      <label>
-        Address:
-        <input type="text" name="address" onChange={handleChange} required />
-      </label>
-
-      <label>
-        Email:
-        <input type="text" name="email" onChange={handleChange} required />
-      </label>
-
-      <select onChange={handleChange} name="countryCode">
-        <option value="DK">DK</option>
-        {shippingOptions &&
-          shippingOptions.countries
-            .filter((countryCode) => countryCode !== "DK")
-            .map((countryCode) => (
-              <option key={countryCode} value={countryCode}>
-                {countryCode}
-              </option>
-            ))}
-      </select>
-
-      <label>
-        City:
-        <input type="text" name="city" onChange={handleChange} required />
-      </label>
-
-      <label>
-        Zip Code:
-        <input type="number" name="zipCode" onChange={handleChange} required />
-      </label>
-
-      <label>
-        Telephone:
-        <input type="number" name="telephone" onChange={handleChange} required />
-      </label>
-
-      <input type="submit" value="Submit" />
-    </form>
+    <FormGroup>
+      <Typography variant="h4" sx={{ mb: 4 }} color="primary">
+        Delivery Address
+      </Typography>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            sx={{ width: "100%" }}
+            variant="outlined"
+            label="First Name"
+            type="text"
+            name="firstName"
+            required
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            sx={{ width: "100%" }}
+            variant="outlined"
+            label="Last Name"
+            type="text"
+            name="lastName"
+            required
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            sx={{ width: "100%" }}
+            variant="outlined"
+            label="Address"
+            type="text"
+            name="address"
+            required
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            sx={{ width: "100%" }}
+            variant="outlined"
+            label="Email"
+            type="email"
+            name="email"
+            required
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={6} md={3}>
+          {shippingOptions && (
+            <FormControl sx={{ minWidth: "100%" }}>
+              <InputLabel>Country</InputLabel>
+              <Select value={formData.countryCode} label="Country" name="countryCode" onChange={handleChange} required>
+                {shippingOptions.countries.map((countryCode) => (
+                  <MenuItem key={countryCode} value={countryCode}>
+                    {countryCode}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          )}
+        </Grid>
+        <Grid item xs={6} md={3}>
+          <TextField
+            sx={{ width: "100%" }}
+            variant="outlined"
+            label="City"
+            type="text"
+            name="city"
+            required
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={6} md={3}>
+          <TextField
+            sx={{ width: "100%" }}
+            variant="outlined"
+            label="Zip Code"
+            type="text"
+            name="zipCode"
+            required
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs md={3}>
+          <TextField
+            sx={{ width: "100%" }}
+            variant="outlined"
+            label="Phone"
+            type="text"
+            name="telephone"
+            onChange={handleChange}
+          />
+        </Grid>
+      </Grid>
+      <Grid item xs={12} sx={{ mt: 4, display: "flex", justifyContent: "center" }}>
+        <Button variant="contained" onClick={handleSubmit} size="large">
+          Confirm Address
+        </Button>
+      </Grid>
+    </FormGroup>
   );
 }
