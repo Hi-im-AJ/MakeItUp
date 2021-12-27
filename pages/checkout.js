@@ -3,6 +3,7 @@ import AddressForm from "/components/AddressForm";
 import PaymentForm from "../components/PaymentForm";
 import commerce from "/lib/commerce";
 import CartContext from "/context/cart/CartContext";
+import { Container, Paper } from "@mui/material";
 
 export default function () {
   const { id: cartId } = useContext(CartContext);
@@ -20,9 +21,9 @@ export default function () {
   }, [cartId]);
 
   return (
-    <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: "column"}} id="checkoutPage" className="frame">
-      {checkoutToken && <><AddressForm checkoutToken={checkoutToken}/>
-                          <PaymentForm checkoutToken={checkoutToken}/></>}
-    </div>
+    <Container maxWidth="lg">
+      <Paper sx={{ p: 5 }}>{checkoutToken && <><AddressForm checkoutToken={checkoutToken}/>
+        <PaymentForm checkoutToken={checkoutToken}/></>}</Paper>
+    </Container>
   );
 }

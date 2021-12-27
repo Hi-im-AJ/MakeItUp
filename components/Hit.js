@@ -1,8 +1,8 @@
-import {useContext} from "react";
+import { useContext } from "react";
 import Link from "next/link";
 import CartContext from "../context/cart/CartContext";
 import commerce from "../lib/commerce";
-import NoImage from "../public/assets/noImage.png";
+import { Card, CardMedia, CardContent, CardActions, Typography, Button } from "@mui/material";
 
 export default function ({ hit }) {
   const { name, image, price, objectID } = hit;
@@ -12,22 +12,24 @@ export default function ({ hit }) {
   const addToCart = () => commerce.cart.add(objectID).then(({ cart }) => setCart(cart));
 
   const href = "product/" + objectID;
+  const media = image ? (
+    <Link href={href}>
+      <CardMedia component="img" sx={{ height: "15rem", cursor: "pointer" }} title={name} image={image.url} />
+    </Link>
+  ) : null;
+
   return (
-    <div key={objectID} id={objectID}>
-      <Link href={href} >
-          {image ? <img src={image.url} alt={name} /> : <img src={NoImage} alt={name} />}
-      </Link>
-      <Link href={href}>
-        <p>{name}</p>
-      </Link>
-
-      <Link href={href}>
-        <p>{price.formatted_with_code}</p>
-      </Link>
-
-      <button className="btn" onClick={addToCart}>
-        Add To Cart
-      </button>
-    </div>
+    <Card key={objectID}>
+      {media}
+      <CardContent>
+        <Typography variant="h6">{name}</Typography>
+        <Typography variant="p" color="primary">
+          {price.formatted_with_code}
+        </Typography>
+        <CardActions>
+          <Button onClick={addToCart}>Add To Cart</Button>
+        </CardActions>
+      </CardContent>
+    </Card>
   );
 }

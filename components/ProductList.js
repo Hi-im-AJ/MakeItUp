@@ -1,16 +1,20 @@
 import { useContext } from "react";
-import { InstantSearch, SearchBox, HitsPerPage, RefinementList, SortBy } from "react-instantsearch-dom";
+import { InstantSearch, SearchBox, HitsPerPage, SortBy } from "react-instantsearch-dom";
 import searchClient from "../lib/algolia";
 import SearchContext from "../context/search/SearchContext";
 import InfiniteHits from "./InfiniteHits";
+import RefinementList from "../components/RefinementList";
+import { Grid } from "@mui/material";
+import { connectRefinementList } from "react-instantsearch-dom";
+const CustomRefinementList = connectRefinementList(RefinementList);
 
 export default function () {
   const { searchInput } = useContext(SearchContext);
 
   return (
     <InstantSearch searchClient={searchClient} indexName="products">
-      <div id="productList">
-        <RefinementList
+      <Grid container spacing={4}>
+        <CustomRefinementList
           attribute="categories.name"
           operator="and"
           transformItems={(items) =>
@@ -20,7 +24,7 @@ export default function () {
             }))
           }
         />
-        <div>
+        <Grid item xs>
           <div style={{ display: "none" }}>
             <SearchBox
               defaultRefinement={searchInput}
@@ -31,14 +35,14 @@ export default function () {
               }}
             />
           </div>
-          <SortBy
+          {/*<SortBy
             defaultRefinement="products"
             items={[
               { value: "product_price_asc", label: "By lower price first" },
               { value: "product_price_desc", label: "By higher price first" },
               { value: "products", label: "By relevance" },
             ]}
-          />
+          />*/}
 
           <InfiniteHits minHitsPerPage={2} />
 
@@ -51,8 +55,8 @@ export default function () {
               ]}
             />
           </div>
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     </InstantSearch>
   );
 }
