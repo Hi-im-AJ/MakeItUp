@@ -14,7 +14,7 @@ const PaymentForm = ({ checkoutToken }) => {
     formData: { firstName, lastName, address, email, city, countryCode, zipCode },
   } = useContext(UserContext);
 
-  const refreshCart = () => Commerce.cart.refresh().then(({ cart }) => setCart(cart));
+  const refreshCart = () => commerce.cart.refresh().then(({ cart }) => setCart(cart));
 
   const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
     try {
