@@ -22,8 +22,14 @@ export default function () {
 
   return (
     <Container maxWidth="lg">
-      <Paper sx={{ p: 5 }}>{checkoutToken && <><AddressForm checkoutToken={checkoutToken}/>
-        <PaymentForm checkoutToken={checkoutToken}/></>}</Paper>
+      <Paper sx={{ p: 5 }}>
+        {checkoutToken && (
+          <>
+            <AddressForm checkoutToken={checkoutToken} />
+            <PaymentForm checkoutToken={checkoutToken} />
+          </>
+        )}
+      </Paper>
     </Container>
   );
 }
