@@ -14,12 +14,16 @@ const PaymentForm = ({ checkoutToken }) => {
     formData: { firstName, lastName, address, email, city, countryCode, zipCode },
   } = useContext(UserContext);
 
-  const refreshCart = () => commerce.cart.refresh().then(({ cart }) => setCart(cart));
+  const refreshCart = async () => {
+
+    const newCart = await commerce.cart.refresh();
+    setCart(newCart)
+  }
 
   const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
     try {
       commerce.checkout.capture(checkoutTokenId, newOrder).then((order) => setOrder(order));
-      refreshCart();
+      await refreshCart();
     } catch (error) {
       alert(error.data.error.message);
     }
