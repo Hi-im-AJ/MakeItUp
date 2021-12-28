@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from "react";
-import {Typography, Button, Divider, CircularProgress, Popover, Paper, Modal} from "@material-ui/core";
+import {Typography, Button, Divider, CircularProgress, Modal} from "@material-ui/core";
 import { Elements, CardElement, ElementsConsumer } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CartContext from "../context/cart/CartContext";
