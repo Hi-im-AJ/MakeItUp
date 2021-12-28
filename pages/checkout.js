@@ -20,6 +20,7 @@ export default function () {
         console.error(err);
       });
   }, [cartId]);
+
   if (checkoutToken === null) {
     return <CircularProgress style={{
           color: "",

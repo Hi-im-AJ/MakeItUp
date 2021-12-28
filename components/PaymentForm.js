@@ -1,13 +1,16 @@
 import React, {useContext, useEffect, useState} from "react";
-import {Typography, Button, Divider, CircularProgress} from "@material-ui/core";
+import {Typography, Button, Divider, CircularProgress, Popover, Paper, Modal} from "@material-ui/core";
 import { Elements, CardElement, ElementsConsumer } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CartContext from "../context/cart/CartContext";
 import UserContext from "../context/user/UserContext";
 import commerce from "../lib/commerce";
+import {useRouter} from "next/router";
 
 const PaymentForm = ({ checkoutToken }) => {
+  const router = useRouter()
   const { subtotal, line_items, shippingOptions, refreshCart } = useContext(CartContext);
+
   const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
   const [loading, setLoading] = useState(false);
   const {
@@ -15,6 +18,14 @@ const PaymentForm = ({ checkoutToken }) => {
   } = useContext(UserContext);
 
   const [formFilled, setFormFilled] = useState(false)
+  const [order, setOrder] = useState({})
+  const [openModal, setOpenModal] = useState(false);
+  const handleClose = async () => {
+
+    await router.replace("/")
+
+    setOpenModal(false);
+  }
 
   useEffect(() => {
     if (firstName && lastName && address && email && city && countryCode && zipCode) {
@@ -28,8 +39,11 @@ const PaymentForm = ({ checkoutToken }) => {
     try {
       setLoading(true)
       commerce.checkout.capture(checkoutTokenId, newOrder)
-        .then(() => setLoading(false)
-        );
+        .then((order) => {
+          setOrder(order)
+          setLoading(false)
+          setOpenModal(true)
+        });
       refreshCart();
     } catch (error) {
       alert(error.data.error.message);
@@ -84,7 +98,17 @@ const PaymentForm = ({ checkoutToken }) => {
   };
 
   return (
+
     <>
+      {order &&
+      <Modal
+        open={openModal}
+        onClick={() => {}}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description">
+        <h2>{order.status_payment}</h2>
+      </Modal>}
       {loading && <CircularProgress style={{
         color: "",
         position: "fixed",
