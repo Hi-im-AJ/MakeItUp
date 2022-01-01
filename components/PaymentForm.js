@@ -1,49 +1,54 @@
-import React, {useContext, useEffect, useState} from "react";
-import {Typography, Button, Divider, CircularProgress, Modal} from "@material-ui/core";
+import { useContext, useEffect, useState } from "react";
+import { Typography, Button, Divider, CircularProgress, Modal } from "@mui/material";
 import { Elements, CardElement, ElementsConsumer } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CartContext from "../context/cart/CartContext";
 import UserContext from "../context/user/UserContext";
 import commerce from "../lib/commerce";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 const PaymentForm = ({ checkoutToken }) => {
-  const router = useRouter()
-  const { subtotal, line_items, shippingOptions, refreshCart } = useContext(CartContext);
+  const router = useRouter();
 
-  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
-  const [loading, setLoading] = useState(false);
+  const { subtotal, line_items, shippingOptions, refreshCart } = useContext(CartContext);
   const {
     formData: { firstName, lastName, address, email, city, countryCode, zipCode },
   } = useContext(UserContext);
 
-  const [formFilled, setFormFilled] = useState(false)
-  const [order, setOrder] = useState({})
+  const [loading, setLoading] = useState(false);
+  const [formFilled, setFormFilled] = useState(false);
+  const [order, setOrder] = useState({});
   const [openModal, setOpenModal] = useState(false);
-  const handleClose = async () => {
 
-    await router.replace("/")
+  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
+  const stripeOptions = {
+    appearance: {
+      theme: "none",
+    },
+  };
+
+  const handleClose = async () => {
+    await router.replace("/");
 
     setOpenModal(false);
-  }
+  };
 
   useEffect(() => {
     if (firstName && lastName && address && email && city && countryCode && zipCode) {
       setFormFilled(true);
     } else {
-      setFormFilled(false)
+      setFormFilled(false);
     }
   }, [firstName, lastName, address, email, city, countryCode, zipCode]);
 
   const handleCaptureCheckout = (checkoutTokenId, newOrder) => {
     try {
-      setLoading(true)
-      commerce.checkout.capture(checkoutTokenId, newOrder)
-        .then((order) => {
-          setOrder(order)
-          setLoading(false)
-          setOpenModal(true)
-        });
+      setLoading(true);
+      commerce.checkout.capture(checkoutTokenId, newOrder).then((order) => {
+        setOrder(order);
+        setLoading(false);
+        setOpenModal(true);
+      });
       refreshCart();
     } catch (error) {
       alert(error.data.error.message);
@@ -93,29 +98,34 @@ const PaymentForm = ({ checkoutToken }) => {
           },
         },
       };
-      await handleCaptureCheckout(checkoutToken, orderData);
+      handleCaptureCheckout(checkoutToken, orderData);
     }
   };
 
   return (
-
     <>
-      {order &&
-      <Modal
-        open={openModal}
-        onClick={() => {}}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description">
-        <h2>{order.status_payment}</h2>
-      </Modal>}
-      {loading && <CircularProgress style={{
-        color: "",
-        position: "fixed",
-        top: "60%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-      }} />}
+      {order && (
+        <Modal
+          open={openModal}
+          onClick={() => {}}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <h2>{order.status_payment}</h2>
+        </Modal>
+      )}
+      {loading && (
+        <CircularProgress
+          style={{
+            color: "primary",
+            position: "fixed",
+            top: "60%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+        />
+      )}
       <br />
       <Divider />
       <br />
@@ -123,11 +133,11 @@ const PaymentForm = ({ checkoutToken }) => {
         Payment Method
       </Typography>
       <br />
-      <Elements stripe={stripePromise}>
+      <Elements stripe={stripePromise} options={stripeOptions}>
         <ElementsConsumer>
           {({ elements, stripe }) => (
             <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
-              <CardElement />
+              <CardElement options={stripeOptions} />
               <br /> <br />
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <Button type="submit" variant="contained" disabled={!stripe || !formFilled} color="primary">

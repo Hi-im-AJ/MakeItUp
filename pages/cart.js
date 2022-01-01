@@ -44,12 +44,12 @@ export default function () {
           <Typography variant="overline">Sub total: {subtotal.formatted_with_symbol}</Typography>
         </ListItem>
         <ListItem>
-          <Link id="checkoutBtn" href="/checkout">
+          <Link href="/checkout">
             <Button variant="contained">Checkout</Button>
           </Link>
-          <div id="clearCartButton">
-            <Button variant="outlined" onClick={() => clearCart(id)}>Clear Cart</Button>
-          </div>
+          <Button sx={{ mx: "1rem" }} variant="outlined" onClick={() => clearCart(id)}>
+            Clear Cart
+          </Button>
         </ListItem>
       </List>
     </Container>
