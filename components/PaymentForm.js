@@ -19,18 +19,12 @@ const PaymentForm = ({ checkoutToken }) => {
   const [formFilled, setFormFilled] = useState(false);
   const [order, setOrder] = useState({});
   const [openModal, setOpenModal] = useState(false);
+  const [stripePromise, setStripePromise] = useState(false);
 
-  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
   const stripeOptions = {
     appearance: {
       theme: "none",
     },
-  };
-
-  const handleClose = async () => {
-    await router.replace("/");
-
-    setOpenModal(false);
   };
 
   useEffect(() => {
@@ -40,6 +34,10 @@ const PaymentForm = ({ checkoutToken }) => {
       setFormFilled(false);
     }
   }, [firstName, lastName, address, email, city, countryCode, zipCode]);
+
+  useEffect(() => {
+    setStripePromise(loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY));
+  }, []);
 
   const handleCaptureCheckout = (checkoutTokenId, newOrder) => {
     try {
@@ -53,6 +51,12 @@ const PaymentForm = ({ checkoutToken }) => {
     } catch (error) {
       alert(error.data.error.message);
     }
+  };
+
+  const handleClose = async () => {
+    await router.replace("/");
+
+    setOpenModal(false);
   };
 
   const handleSubmit = async (e, elements, stripe) => {
@@ -133,21 +137,23 @@ const PaymentForm = ({ checkoutToken }) => {
         Payment Method
       </Typography>
       <br />
-      <Elements stripe={stripePromise} options={stripeOptions}>
-        <ElementsConsumer>
-          {({ elements, stripe }) => (
-            <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
-              <CardElement options={stripeOptions} />
-              <br /> <br />
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <Button type="submit" variant="contained" disabled={!stripe || !formFilled} color="primary">
-                  Pay {subtotal.formatted_with_symbol}
-                </Button>
-              </div>
-            </form>
-          )}
-        </ElementsConsumer>
-      </Elements>
+      {stripePromise && (
+        <Elements stripe={stripePromise} options={stripeOptions}>
+          <ElementsConsumer>
+            {({ elements, stripe }) => (
+              <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
+                <CardElement options={stripeOptions} />
+                <br /> <br />
+                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                  <Button type="submit" variant="contained" disabled={!stripe || !formFilled} color="primary">
+                    Pay {subtotal.formatted_with_symbol}
+                  </Button>
+                </div>
+              </form>
+            )}
+          </ElementsConsumer>
+        </Elements>
+      )}
     </>
   );
 };
