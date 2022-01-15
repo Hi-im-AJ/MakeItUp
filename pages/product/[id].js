@@ -5,14 +5,30 @@ import CartContext from "../../context/cart/CartContext";
 import { Container } from "@mui/material";
 import { Card, CardMedia, CardContent, CardActions, Button, Typography, Grid } from "@mui/material";
 
-export async function getServerSideProps(context) {
+export const getStaticPaths = async () => {
+  // Fetch existing posts from the database
+  let {data} = await commerce.products.list()
+
+  // Get the paths we want to pre-render based on posts
+  const paths = data.map(product => ({
+    params: { id: String(product.id) },
+  }))
+
+  return {
+    paths,
+    // If an ID is requested that isn't defined here, fallback will incrementally generate the page
+    fallback: true,
+  }
+}
+export async function getStaticProps(context) {
   const {
     params: { id },
   } = context;
   let product = await commerce.products.retrieve(id);
 
   return {
-    props: { product }, // will be passed to the page component as props
+    props: { product },
+    revalidate: 1,// will be passed to the page component as props
   };
 }
 export default ({ product }) => {
