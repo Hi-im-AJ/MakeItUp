@@ -21,7 +21,6 @@
     "react-instantsearch-dom": "^6.18.0"
   },
   "devDependencies": {
-    "@material-ui/core": "^4.12.3",
     "@stripe/react-stripe-js": "^1.7.0",
     "@stripe/stripe-js": "^1.22.0",
     "concurrently": "^6.5.1",

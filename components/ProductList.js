@@ -1,4 +1,4 @@
-import {useContext, useRef} from "react";
+import { useContext } from "react";
 import { InstantSearch, SearchBox, HitsPerPage, SortBy } from "react-instantsearch-dom";
 import searchClient from "../lib/algolia";
 import SearchContext from "../context/search/SearchContext";
@@ -36,7 +36,7 @@ export default function () {
             />
           </div>
 
-          <div style={{position : "absolute"}}>
+          <div style={{ position: "absolute" }}>
             <SortBy
               defaultRefinement="products"
               items={[
@@ -46,7 +46,7 @@ export default function () {
               ]}
             />
           </div>
-          <br/>
+          <br />
           <InfiniteHits minHitsPerPage={2} />
 
           <div style={{ display: "none" }}>

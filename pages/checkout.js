@@ -2,8 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import AddressForm from "/components/AddressForm";
 import PaymentForm from "../components/PaymentForm";
 import CartContext from "/context/cart/CartContext";
-import {CircularProgress} from "@material-ui/core";
-import { Container, Paper } from "@mui/material";
+import { Container, Paper, CircularProgress } from "@mui/material";
 import commerce from "../lib/commerce";
 
 export default function () {
@@ -22,13 +21,17 @@ export default function () {
   }, [cartId]);
 
   if (checkoutToken === null) {
-    return <CircularProgress style={{
-          color: "",
+    return (
+      <CircularProgress
+        style={{
+          color: "primary",
           position: "fixed",
           top: "60%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-        }} />
+        }}
+      />
+    );
   }
   return (
     <Container maxWidth="lg">
