@@ -8,7 +8,6 @@ import { Card, CardMedia, CardContent, CardActions, Button, Typography, Grid } f
 export const getStaticPaths = async () => {
   // Fetch existing posts from the database
   let {data} = await commerce.products.list()
-
   // Get the paths we want to pre-render based on posts
   const paths = data.map(product => ({
     params: { id: String(product.id) },
