@@ -1,7 +1,7 @@
 import React, {useReducer} from "react";
 import CartContext from "./CartContext";
 import CartReducer from "./CartReducer";
-import { SET_CART, GET_SHIPPING_OPTIONS } from "../types";
+import { SET_CART, GET_SHIPPING_OPTIONS, SET_CART_LOADING } from "../types";
 import commerce from "../../lib/commerce";
 
 export default (props) => {
@@ -12,26 +12,34 @@ export default (props) => {
     subtotal: 0,
     id: "",
     shippingOptions: null,
+    loading: null
   };
 
   const [state, dispatch] = useReducer(CartReducer, initialState);
 
   const setCart = (payload) => {
-    dispatch({ type: SET_CART, payload });
+      dispatch({ type: SET_CART, payload });
   };
 
+  const setLoading = (payload) => {
+      dispatch({ type:SET_CART_LOADING, payload: payload})
+  }
   const retrieveCart = () => {
+    setLoading(true)
     commerce.cart
       .retrieve()
       .then((cart) => {
         setCart(cart);
       })
       .catch((err) => console.error(err));
+    setLoading(false)
   }
 
   const refreshCart = async () => {
+    setLoading(true)
     const newCart = await commerce.cart.refresh();
     setCart(newCart)
+    setLoading(false)
   }
   const getShippingOptions = async (token) => {
     try {
@@ -44,33 +52,65 @@ export default (props) => {
     }
   };
 
-  const incrementByOne = (productID, quantity) =>
-    commerce.cart
-      .update(productID, {
-        quantity: quantity + 1,
-      })
-      .then(({ cart }) => setCart(cart))
-      .catch((err) => console.error(err));;
+  const incrementByOne = (productID, quantity) => {
+      setLoading(true)
+          commerce.cart
+          .update(productID, {
+              quantity: quantity + 1,
+          })
+          .then(({ cart }) => {
+              setCart(cart)
+              setLoading(false)
+              })
+              .catch((err) => {
+                  console.error(err)
+                  setLoading(false)
+              });
+  }
 
-  const decrementByOne = (productID, quantity) =>
-    commerce.cart
-      .update(productID, {
-        quantity: quantity - 1,
-      })
-      .then(({ cart }) => setCart(cart))
-      .catch((err) => console.error(err));;
+  const decrementByOne = (productID, quantity) => {
+      setLoading(true)
+      commerce.cart
+          .update(productID, {
+              quantity: quantity - 1,
+          })
+          .then(({ cart }) => {
+              setLoading(false)
+              setCart(cart)
+          })
+          .catch((err) => {
+              console.error(err)
+              setLoading(false)
+          });
+  }
 
-  const clearCart = () =>
-    commerce.cart
-      .empty(state.id)
-      .then(({ cart }) => setCart(cart))
-      .catch((err) => console.error(err));;
+  const clearCart = () => {
+      setLoading(true)
+      commerce.cart
+          .empty(state.id)
+          .then(({ cart }) => {
+              setCart(cart)
+              setLoading(false)
+          })
+          .catch((err) => {
+              console.error(err)
+              setLoading(false)
+          });
+  }
 
-  const addToCart = (objectID) =>
-    commerce.cart
-      .add(objectID)
-      .then(({ cart }) => setCart(cart))
-      .catch((err) => console.error(err));;
+  const addToCart = (objectID) => {
+      setLoading(true)
+      commerce.cart
+          .add(objectID)
+          .then(({ cart }) =>{
+              setCart(cart)
+              setLoading(false)
+          })
+          .catch((err) => {
+              console.error(err)
+              setLoading(false)
+          });
+  }
 
   return (
     <CartContext.Provider
@@ -81,6 +121,7 @@ export default (props) => {
         subtotal: state.subtotal,
         id: state.id,
         shippingOptions: state.shippingOptions,
+        loading: state.loading,
         setCart,
         retrieveCart,
         getShippingOptions,

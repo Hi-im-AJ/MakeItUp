@@ -1,4 +1,4 @@
-import { SET_CART, GET_SHIPPING_OPTIONS } from "../types";
+import {SET_CART, GET_SHIPPING_OPTIONS, SET_CART_LOADING} from "../types";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -12,6 +12,10 @@ const reducer = (state, action) => {
         ...state,
         shippingOptions: action.payload,
       };
+    case SET_CART_LOADING:
+      return  {
+        ...state,
+        loading: action.payload}
     default:
       return { ...state };
   }

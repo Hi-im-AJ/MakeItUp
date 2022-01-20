@@ -2,10 +2,10 @@ import { useContext } from "react";
 import Link from "next/link";
 import CartItem from "../components/CartItem";
 import CartContext from "../context/cart/CartContext";
-import { Container, List, ListItem, Typography, Button } from "@mui/material";
+import {Container, List, ListItem, Typography, Button, CircularProgress} from "@mui/material";
 
 export default function () {
-  const { line_items, subtotal, total_items, id, clearCart } = useContext(CartContext);
+  const { line_items, subtotal, total_items, id, clearCart, loading } = useContext(CartContext);
 
   if (total_items === 0)
     return (
@@ -15,6 +15,14 @@ export default function () {
     );
   return (
     <Container maxWidth="lg">
+      {loading && <CircularProgress style={{
+          position: "fixed",
+          left: "50%",
+          top: "50%",
+          width: "5%",
+          height: "5%",
+          zIndex: "9999"}}/>
+      }
       <List>
         {line_items.map((item) => {
           const {

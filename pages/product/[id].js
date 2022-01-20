@@ -2,7 +2,7 @@ import { useContext } from "react";
 import commerce from "../../lib/commerce";
 import { stripTags } from "../../lib/utils";
 import CartContext from "../../context/cart/CartContext";
-import { Container } from "@mui/material";
+import {CircularProgress, Container} from "@mui/material";
 import { Card, CardMedia, CardContent, CardActions, Button, Typography, Grid } from "@mui/material";
 
 export const getStaticPaths = async () => {
@@ -31,11 +31,20 @@ export async function getStaticProps(context) {
   };
 }
 export default ({ product }) => {
-  const { setCart } = useContext(CartContext);
-  const addToCart = () => commerce.cart.add(product.id).then(({ cart }) => setCart(cart));
-
+  const { addToCart } = useContext(CartContext);
+  const { loading } = useContext(CartContext);
+  const add = () => {
+    addToCart(product.id)
+  }
   return product ? (
     <Container maxWidth="lg">
+      {loading && <CircularProgress style={{
+        position: "fixed",
+        left: "50%",
+        top: "50%",
+        width: "5%",
+        height: "5%",
+        zIndex: "9999"}}/>}
       <Card>
         <Grid container>
           <Grid item xs={12} md={6} lg={5}>
@@ -53,7 +62,7 @@ export default ({ product }) => {
               </Typography>
               <Typography variant="subtitle1">{stripTags(product.description)}</Typography>
               <CardActions sx={{ mt: 2 }}>
-                <Button onClick={addToCart} variant="outlined">
+                <Button onClick={add} variant="outlined">
                   Add To Cart
                 </Button>
               </CardActions>
