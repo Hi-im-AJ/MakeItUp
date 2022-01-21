@@ -12,7 +12,7 @@ export default (props) => {
     subtotal: 0,
     id: "",
     shippingOptions: null,
-    loading: null
+    loading: false
   };
 
   const [state, dispatch] = useReducer(CartReducer, initialState);
