@@ -38,7 +38,7 @@ export default ({ product }) => {
   }
   return product ? (
     <Container maxWidth="lg">
-      {loading && <CircularProgress style={{
+      {loading && <CircularProgress sx={{
         position: "fixed",
         left: "50%",
         top: "50%",

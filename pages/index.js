@@ -15,7 +15,7 @@ export default function () {
       </Head>
       <main id="homePage">
         <Container maxWidth="xl">
-            {loading && <CircularProgress style={{
+            {loading && <CircularProgress sx={{
                 position: "fixed",
                 left: "50%",
                 top: "50%",
