@@ -4,6 +4,7 @@ import { stripTags } from "../../lib/utils";
 import CartContext from "../../context/cart/CartContext";
 import {CircularProgress, Container} from "@mui/material";
 import { Card, CardMedia, CardContent, CardActions, Button, Typography, Grid } from "@mui/material";
+import Head from "next/head";
 
 export const getStaticPaths = async () => {
   // Fetch existing posts from the database
@@ -37,7 +38,12 @@ export default ({ product }) => {
     addToCart(product.id)
   }
   return product ? (
+
+
     <Container maxWidth="lg">
+      <Head key={product.id}>
+        <meta name="description" content={product.description} />
+      </Head>
       {loading && <CircularProgress sx={{
         position: "fixed",
         left: "50%",
