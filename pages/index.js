@@ -3,6 +3,7 @@ import ProductList from "../components/ProductList";
 import {CircularProgress, Container} from "@mui/material";
 import CartContext from "../context/cart/CartContext";
 import {useContext} from "react";
+import {stripTags} from "../lib/utils";
 
 export default function () {
     const { loading } = useContext(CartContext);
@@ -10,8 +11,8 @@ export default function () {
     return (
     <>
       <Head>
-        <title>Make It Up!</title>
-        content="Buy makeup and stuff!" />
+          <title>Make It Up!</title>
+          <meta name="description" content="Buy quality makeup from Make It Up" />
       </Head>
       <main id="homePage">
         <Container maxWidth="xl">
