@@ -37,12 +37,13 @@ export default ({ product }) => {
   const add = () => {
     addToCart(product.id)
   }
+  const strippedDescription = stripTags(product.description)
   return product ? (
 
 
     <Container maxWidth="lg">
       <Head key={product.id}>
-        <meta name="description" content={product.description} />
+        <meta name="description" content={strippedDescription} />
       </Head>
       {loading && <CircularProgress sx={{
         position: "fixed",
@@ -66,7 +67,7 @@ export default ({ product }) => {
               <Typography sx={{ mb: 4 }} variant="h3">
                 {product.name}
               </Typography>
-              <Typography variant="subtitle1">{stripTags(product.description)}</Typography>
+              <Typography variant="subtitle1">{strippedDescription}</Typography>
               <CardActions sx={{ mt: 2 }}>
                 <Button onClick={add} variant="outlined">
                   Add To Cart
