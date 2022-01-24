@@ -5,6 +5,7 @@ import CartContext from "../../context/cart/CartContext";
 import {CircularProgress, Container} from "@mui/material";
 import { Card, CardMedia, CardContent, CardActions, Button, Typography, Grid } from "@mui/material";
 import Head from "next/head";
+import Image from "next/image"
 
 export const getStaticPaths = async () => {
   // Fetch existing posts from the database
@@ -55,12 +56,12 @@ export default ({ product }) => {
       <Card>
         <Grid container>
           <Grid item xs={12} md={6} lg={5}>
+
             <CardMedia
-              sx={{ height: "30rem" }}
               title={product.image.filename}
-              component="img"
-              image={product.image.url}
-            />
+              image={product.image.url}>
+              <Image src={product.image.url} width="30" height="30" layout="responsive"></Image>
+            </CardMedia>
           </Grid>
           <Grid item xs>
             <CardContent sx={{ p: 4 }}>

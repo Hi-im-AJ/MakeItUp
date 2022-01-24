@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-      formats: ['image/avif', 'image/webp']
+    formats: ['image/avif', 'image/webp'],
+    domains: ["cdn.chec.io"],
   },
-  domains: ["cdn.chec.io"],
 };

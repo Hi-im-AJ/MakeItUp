@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import Link from "next/link";
+import Image from "next/image"
 import CartContext from "../context/cart/CartContext";
 import { Card, CardMedia, CardContent, CardActions, Typography, Button } from "@mui/material";
 
@@ -9,7 +10,9 @@ export default function ({ hit }) {
   const href = "product/" + objectID;
   const media = image ? (
     <Link href={href}>
-      <CardMedia component="img" sx={{ height: "15rem", cursor: "pointer" }} title={name} image={image.url} />
+      <CardMedia sx={{ cursor: "pointer" }} title={name} >
+        <Image src={image.url} width="15" height="15" layout="responsive"></Image>
+      </CardMedia>
     </Link>
   ) : null;
 
